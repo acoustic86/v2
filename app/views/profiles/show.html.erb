@@ -35,5 +35,26 @@
   <%= @profile.base_price %>
 </p>
 
+  <table class="table">
+	<tr>
+		<th>Show Request</th>		
+		<th>Show Date</th>
+		<th>Show Time</th>
+		<th>Description</th>
+	</tr>
+	
+	<% @profile.show_requests.each do |show_request| %>
+	  <tr>
+	  	<td><%= link_to 'View Request', profile_show_request_path(@profile, show_request)%></td>
+	  	<td><%= show_request.show_date %></td>
+	  	<td><%= show_request.show_time %></td>
+	  	<td><%= show_request.description %></td>
+	  </tr>
+	<% end %>
+  </table>
+<p>  
+  <%= link_to 'Request a Show', new_profile_show_request_path(@profile) %>
+</p>
+
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
 <%= link_to 'Back', profiles_path %>

@@ -14,17 +14,21 @@ class ShowRequestsController < ApplicationController
 
   # GET /show_requests/new
   def new
+    @profile = Profile.find(params[:profile_id])
     @show_request = ShowRequest.new
   end
 
   # GET /show_requests/1/edit
   def edit
+    @profile = Profile.find(params[:profile_id])
+    @show_request = ShowRequest.find(show_request_params)
   end
-
+  
   # POST /show_requests
   # POST /show_requests.json
   def create
-    @show_request = ShowRequest.new(show_request_params)
+    @profile = Profile.find(params[:profile_id])
+    @show_request = @profile.show_requests.new(show_request_params)
 
     respond_to do |format|
       if @show_request.save
@@ -69,6 +73,6 @@ class ShowRequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def show_request_params
-      params.require(:show_request).permit(:show_date, :show_time, :description)
+      params.require(:show_request).permit(:show_date, :show_time, :description, :profile_id)
     end
 end
