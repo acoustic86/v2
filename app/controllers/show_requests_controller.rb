@@ -20,8 +20,8 @@ class ShowRequestsController < ApplicationController
 
   # GET /show_requests/1/edit
   def edit
-    @profile = Profile.find(params[:profile_id])
-    @show_request = ShowRequest.find(show_request_params)
+    #@profile = Profile.find(params[:profile_id])
+    #@show_request = ShowRequest.find(show_request_params)    
   end
   
   # POST /show_requests
@@ -32,7 +32,7 @@ class ShowRequestsController < ApplicationController
 
     respond_to do |format|
       if @show_request.save
-        format.html { redirect_to @show_request, notice: 'Show request was successfully created.' }
+        format.html { redirect_to profile_show_request_path(@profile, @show_request), notice: 'Show request was successfully created.' }
         format.json { render action: 'show', status: :created, location: @show_request }
       else
         format.html { render action: 'new' }
@@ -43,10 +43,11 @@ class ShowRequestsController < ApplicationController
 
   # PATCH/PUT /show_requests/1
   # PATCH/PUT /show_requests/1.json
-  def update
+  def update    
+    
     respond_to do |format|
       if @show_request.update(show_request_params)
-        format.html { redirect_to @show_request, notice: 'Show request was successfully updated.' }
+        format.html { redirect_to profile_show_request_path(@show_request.profile, @show_request), notice: 'Show request was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -69,7 +70,7 @@ class ShowRequestsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_show_request
       @show_request = ShowRequest.find(params[:id])
-    end
+    end   
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def show_request_params

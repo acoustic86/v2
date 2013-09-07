@@ -1,5 +1,6 @@
 Showping::Application.routes.draw do
-  resources :show_requests
+  devise_for :users
+  resources :show_requests#, only: :index
 
   resources :profiles do
     resources :show_requests

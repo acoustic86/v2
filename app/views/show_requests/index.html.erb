@@ -18,9 +18,10 @@
         <td><%= show_request.show_date %></td>
         <td><%= show_request.show_time %></td>
         <td><%= show_request.description %></td>
-        <td><%= link_to 'Show', show_request %></td>
-        <td><%= link_to 'Edit', edit_show_request_path(show_request) %></td>
-        <td><%= link_to 'Destroy', show_request, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <!--  <td><%= link_to 'Show', show_requests_path %></td>
+        <td><%= link_to 'Edit', edit_profile_show_request_path(show_request.profile_id, show_request) %></td>
+        <td><%= link_to 'Destroy', profile_show_request_path(show_request.profile_id, show_request), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+       -->
       </tr>
     <% end %>
   </tbody>
@@ -28,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Show request', new_show_request_path %>
+<!--<%= link_to 'New Show Request', new_profile_show_request_path(@profile) %>-->

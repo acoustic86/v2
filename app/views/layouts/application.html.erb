@@ -35,6 +35,8 @@
     <%= favicon_link_tag 'favicon.ico', :rel => 'shortcut icon' %>
   </head>
   <body>
+  	 <p class="notice"><%= notice %></p>
+     <p class="alert"><%= alert %></p>
 
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
@@ -44,12 +46,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Showping</a>
+          <a class="brand" href="/">Showping</a>
           <div class="container nav-collapse">
             <ul class="nav">
-              <li><%= link_to "Link1", "/path1"  %></li>
-              <li><%= link_to "Link2", "/path2"  %></li>
-              <li><%= link_to "Link3", "/path3"  %></li>
+              <li><%= link_to "Profiles", profiles_path  %></li>
+              <li><%= link_to "Show Requests", show_requests_path  %></li>              
             </ul>
           </div><!--/.nav-collapse -->
         </div>
