@@ -6,7 +6,7 @@ Showping::Application.routes.draw do
     resources :show_requests
   end
   
-  root to: 'profiles#index'
+  root to: "profiles#index"
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

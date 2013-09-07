@@ -1,5 +1,8 @@
 class ProfilesController < ApplicationController
+  before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
+  
+  before_action :owns_profile, only: [:edit, :update, :destroy]
 
   # GET /profiles
   # GET /profiles.json
@@ -14,7 +17,9 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/new
   def new
-    @profile = Profile.new
+    #@profile = Profile.new
+    @user = current_user
+    @profile = Profile.new(:user_id => @user.id)
   end
 
   # GET /profiles/1/edit
@@ -24,7 +29,8 @@ class ProfilesController < ApplicationController
   # POST /profiles
   # POST /profiles.json
   def create
-    @profile = Profile.new(profile_params)
+    #@profile = Profile.new(profile_params)
+    @profile = current_user.profiles.build(profile_params)
 
     respond_to do |format|
       if @profile.save
@@ -62,6 +68,14 @@ class ProfilesController < ApplicationController
   end
 
   private
+    
+    def owns_profile
+      #if !user_signed_in? || current_user != Profile.find(params[:id]).user
+      if !user_signed_in? || current_user.profiles.find_by(id: params[:id]).nil?
+        redirect_to profiles_path, error: "Cannot modify profiles you don't own"
+      end
+    end
+    
     # Use callbacks to share common setup or constraints between actions.
     def set_profile
       @profile = Profile.find(params[:id])
@@ -69,6 +83,6 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:first_name, :last_name, :description, :experience, :show_type, :current_location, :base_price)
+      params.require(:profile).permit(:first_name, :last_name, :description, :experience, :show_type, :current_location, :base_price, :user_id)
     end
 end
