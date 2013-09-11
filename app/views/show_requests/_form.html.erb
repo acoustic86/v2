@@ -1,5 +1,5 @@
-<%= form_for([@profile, @show_request]) do |f| %>
-  <% if @show_request.errors.any? %>
+<%= simple_form_for([@profile, @show_request]) do |f| %>
+  <!--<% if @show_request.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@show_request.errors.count, "error") %> prohibited this show_request from being saved:</h2>
 
@@ -10,20 +10,30 @@
       </ul>
     </div>
   <% end %>
-
+ 
+	<br></br>
   <div class="field">
-    <%= f.label :show_date %><br>
-    <%= f.date_select :show_date %>
+    <%= f.label :show_date %>
+    <%= f.date_select :show_date %><br></br>
   </div>
   <div class="field">
-    <%= f.label :show_time %><br>
-    <%= f.time_select :show_time %>
+    <%= f.label :show_time %>
+    <%= f.time_select :show_time %><br></br>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.label :description %>
+    <%= f.text_area :description %><br></br>
   </div>
-  <div class="actions">
-    <%= f.submit %>
+  -->
+  <%= f.error_notification %> 
+  <%= f.input :show_date %>
+  <%= f.input :show_time %>
+  <%= f.input :description %>
+  
+  <br></br>
+  <br></br>
+  
+  <div class="btn">
+    <%= f.submit 'Update Request', :class => 'btn' %>
   </div>
 <% end %>

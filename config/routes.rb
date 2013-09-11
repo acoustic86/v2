@@ -1,10 +1,14 @@
 Showping::Application.routes.draw do
-  devise_for :users
-  resources :show_requests#, only: :index
-
+  devise_for :users 
+  
+   
   resources :profiles do
     resources :show_requests
   end
+  
+ 
+  resources :show_requests#, only: :index
+ 
   
   root to: "profiles#index"
 

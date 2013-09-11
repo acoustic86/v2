@@ -1,4 +1,4 @@
-<h1>Listing show_requests</h1>
+<h1>My Show Requests</h1>
 
 <table>
   <thead>
@@ -15,13 +15,15 @@
   <tbody>
     <% @show_requests.each do |show_request| %>
       <tr>
+      <% if user_signed_in? && current_user == show_request.user %>
         <td><%= show_request.show_date %></td>
         <td><%= show_request.show_time %></td>
         <td><%= show_request.description %></td>
-      <!--  <td><%= link_to 'Show', show_requests_path %></td>
+      
+        <td><%= link_to 'Show',  profile_show_request_path(show_request.profile_id, show_request) %></td>
         <td><%= link_to 'Edit', edit_profile_show_request_path(show_request.profile_id, show_request) %></td>
         <td><%= link_to 'Destroy', profile_show_request_path(show_request.profile_id, show_request), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-       -->
+      <% end %> 
       </tr>
     <% end %>
   </tbody>

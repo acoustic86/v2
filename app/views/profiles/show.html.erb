@@ -1,41 +1,55 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>First name:</strong>
-  <%= @profile.first_name %>
+<div class="text-center">
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>
+</div>
+
+<table class="table table-bordered">
+  <div class="row">
+	<p class="lead text-right">
+	  <strong>First name:</strong>
+	  <%= @profile.first_name %>
+	</p>
+	
+	<p class="lead text-right">
+	  <strong>Last name:</strong>
+	  <%= @profile.last_name %>
+	</p>
+	
+	<p class="lead text-right">
+	  <strong>Description:</strong>
+	  <%= @profile.description %>
+	</p>
+	
+	<p class="lead text-right">
+	  <strong>Experience:</strong>
+	  <%= @profile.experience %>
+	</p>
+	
+	<p class="lead text-right">	
+	  <strong>Show type:</strong>
+	  <%= @profile.show_type %>	
+	</p>	
+	
+	<p class="lead text-right">
+	  <strong>Current location:</strong>
+	  <%= @profile.current_location %>
+	</p>
+	
+	<p class="lead text-right">
+	  <strong>Base price:</strong>
+	  <%= @profile.base_price %>
+	</p>
+  </div>
+</table>
+
+<p class="text-center">  
+  <strong><%= link_to 'Request a Show', new_profile_show_request_path(@profile) %></strong>
 </p>
 
-<p>
-  <strong>Last name:</strong>
-  <%= @profile.last_name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @profile.description %>
-</p>
-
-<p>
-  <strong>Experience:</strong>
-  <%= @profile.experience %>
-</p>
-
-<p>
-  <strong>Show type:</strong>
-  <%= @profile.show_type %>
-</p>
-
-<p>
-  <strong>Current location:</strong>
-  <%= @profile.current_location %>
-</p>
-
-<p>
-  <strong>Base price:</strong>
-  <%= @profile.base_price %>
-</p>
-
-  <table class="table">
+	<br />
+  <table class="table table-striped">
 	<tr>
 		<th>Show Request</th>		
 		<th>Show Date</th>
@@ -52,9 +66,3 @@
 	  </tr>
 	<% end %>
   </table>
-<p>  
-  <%= link_to 'Request a Show', new_profile_show_request_path(@profile) %>
-</p>
-
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>

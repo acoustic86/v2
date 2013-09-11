@@ -6,6 +6,6 @@ class AddProfileIdToShowRequests < ActiveRecord::Migration
     add_index :show_requests, :profile_id
     add_index :show_requests, :client_id
     add_index :show_requests, [:profile_id, :client_id] 
-    add_index :show_requests, [:client_id, :profile_id, ] 
+    add_index :show_requests, [:client_id, :profile_id] 
   end  
 end

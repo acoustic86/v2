@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
          
   has_many :profiles
-  has_many :show_requests, through: :profiles
+  #has_many :show_requests, through: :profiles
+  has_many :show_requests
 end
