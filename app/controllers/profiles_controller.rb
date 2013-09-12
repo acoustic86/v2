@@ -7,7 +7,11 @@ class ProfilesController < ApplicationController
   # GET /profiles
   # GET /profiles.json
   def index
-    @profiles = Profile.all
+    @search = Profile.search do
+      fulltext params[:search]
+    end
+    #@profiles = Profile.all
+    @profiles = @search.results
   end
 
   # GET /profiles/1

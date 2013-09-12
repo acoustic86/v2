@@ -3,4 +3,6 @@
 
 require File.expand_path('../config/application', __FILE__)
 
+require 'sunspot/solr/tasks'
+
 Showping::Application.load_tasks

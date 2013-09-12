@@ -29,6 +29,9 @@ gem 'bootstrap-will_paginate', '0.0.9'
 
 gem 'paperclip', "~> 3.5.0"
 
+gem 'sunspot_rails'
+gem 'sunspot_solr'
+
 #gem 'less-rails', '~> 2.1.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

@@ -15,6 +15,14 @@
       <th></th>
     </tr>
   </thead>
+  <iframe width="854" height="510" src="http://www.youtube.com/embed/DKRlWLDWhGI" frameborder="0" allowfullscreen></iframe>
+  
+  <%= form_tag profiles_path, :method => :get do %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+  <% end %>
 
   <tbody>
     <% @profiles.each do |profile| %>
