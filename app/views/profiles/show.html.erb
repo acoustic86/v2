@@ -6,7 +6,10 @@
 </div>
 
 <table class="table table-bordered">
-  <div class="row">
+  <div class="row">  	
+	<!--<%= image_tag @profile.image.url(:medium) %>-->
+	<%= image_tag @profile.image.url(:thumb) %>
+	
 	<p class="lead text-right">
 	  <strong>First name:</strong>
 	  <%= @profile.first_name %>
@@ -41,6 +44,7 @@
 	  <strong>Base price:</strong>
 	  <%= @profile.base_price %>
 	</p>
+	<%= image_tag @profile.image.url %>
   </div>
 </table>
 
