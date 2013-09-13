@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<!--<p id="notice"><%= notice %></p>-->
 
 <div class="text-center">
 <%= link_to 'Edit', edit_profile_path(@profile) %> |
@@ -8,20 +8,20 @@
 <table class="table table-bordered">
   <div class="row">  	
 	<!--<%= image_tag @profile.image.url(:medium) %>-->
-	<%= image_tag @profile.image.url(:thumb) %>
+	<!--<%= image_tag @profile.image.url(:thumb) %>-->
+		
+	<p class="lead text-center">
+	  
+	  <strong><%= @profile.name %></strong> <br />
+	  <strong><%= link_to 'Request a Show!', new_profile_show_request_path(@profile) %></strong>	    
+	</p>
 	
-	<p class="lead text-right">
-	  <strong>First name:</strong>
-	  <%= @profile.first_name %>
+	<p class="lead text-center">
+	<%= image_tag @profile.image.url() %>
 	</p>
 	
 	<p class="lead text-right">
-	  <strong>Last name:</strong>
-	  <%= @profile.last_name %>
-	</p>
-	
-	<p class="lead text-right">
-	  <strong>Description:</strong>
+	  <strong>About:   </strong>
 	  <%= @profile.description %>
 	</p>
 	
@@ -44,29 +44,46 @@
 	  <strong>Base price:</strong>
 	  <%= @profile.base_price %>
 	</p>
-	<%= image_tag @profile.image.url %>
+	
+	<% if @profile.youtube_url?%>
+	<p>
+	<%= raw (youtube_embed(@profile.youtube_url)) %>
+	</p> 
+	<% end %>
+	
+	<% if @profile.google_calendar?%>
+	<p>
+	<%= raw (@profile.google_calendar) %>
+	</p> 
+	<% end %>
+	
+	<br /> 
+	
   </div>
 </table>
 
 <p class="text-center">  
   <strong><%= link_to 'Request a Show', new_profile_show_request_path(@profile) %></strong>
 </p>
-
-	<br />
-  <table class="table table-striped">
+	<br /> 
+	
+	<table class="table table-striped">
 	<tr>
 		<th>Show Request</th>		
 		<th>Show Date</th>
 		<th>Show Time</th>
 		<th>Description</th>
-	</tr>
-	
+	</tr>  
+ 
 	<% @profile.show_requests.each do |show_request| %>
-	  <tr>
+	<% if user_signed_in? && (current_user == show_request.user || current_user == @profile.user) %>
+	
+	  	<tr>
 	  	<td><%= link_to 'View Request', profile_show_request_path(@profile, show_request)%></td>
 	  	<td><%= show_request.show_date %></td>
 	  	<td><%= show_request.show_time %></td>
 	  	<td><%= show_request.description %></td>
 	  </tr>
+	  <% end %>  
 	<% end %>
   </table>

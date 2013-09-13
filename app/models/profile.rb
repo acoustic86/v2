@@ -5,6 +5,6 @@ class Profile < ActiveRecord::Base
   has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "100x100>" }, :default_url => "/images/:style/No_Image.png"
   
   searchable do
-    text :first_name, :last_name, :show_type    
+    text :name, :show_type    
   end
 end

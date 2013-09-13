@@ -3,19 +3,17 @@
 <table class="table">
   <thead>
     <tr>
-      <th></th>
-      <th>First name</th>
-      <th>Last name</th>      
-      <th>Experience</th>
+      <th></th>      
+      <th>Name</th>      
+      <th>Experience (years)</th>
       <th>Show type</th>
-      <th>Current location</th>
-      <th>Base price</th>
+      <th>Location</th>
+      <th>One Hour Show</th>
       <th></th>
       <th></th>
       <th></th>
     </tr>
-  </thead>
-  <iframe width="854" height="510" src="http://www.youtube.com/embed/DKRlWLDWhGI" frameborder="0" allowfullscreen></iframe>
+  </thead>  
   
   <%= form_tag profiles_path, :method => :get do %>
   <p>
@@ -27,18 +25,18 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-      	<td><%= link_to (image_tag profile.image.url(:thumb)), profile %></td>
-        <td><%= profile.first_name %></td>
-        <td><%= profile.last_name %></td>        
+      	<td><%= link_to (image_tag profile.image.url(:thumb)), profile %></td>        
+        <td><%= profile.name %></td>        
         <td><%= profile.experience %></td>
         <td><%= profile.show_type %></td>
         <td><%= profile.current_location %></td>
         <td><%= profile.base_price %></td>
-        <!--<td><%= link_to 'Show', profile %></td>-->
+        <!--<td><%= link_to 'Show', profile %></td>
         <% if user_signed_in? && current_user == profile.user %>
         <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
         <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <% end %>
+        -->
       </tr>
     <% end %>
   </tbody>

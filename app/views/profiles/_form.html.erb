@@ -1,5 +1,5 @@
 <%= simple_form_for(@profile) do |f| %>
-  <% if @profile.errors.any? %>
+  <!--<% if @profile.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
 
@@ -43,8 +43,22 @@
   <div class="field">
     <%= f.label :image%><br>
     <%= f.file_field :image %>
-  </div>
-
+  </div><br />
+  
+  <%= f.input :youtube_url %><br />
+-->
+  <%= f.error_notification %>   
+  <%= f.input :name %>
+  <%= f.input :description, label: 'Info' %>
+  <%= f.input :experience, label: 'Years of Experience' %>
+  <%= f.input :show_type %>
+  <%= f.input :current_location %>
+  <%= f.input :base_price, label: 'Charge per hour'%>
+  <%= f.input :image %>
+  <%= f.input :youtube_url %>
+  <%= f.input :google_calendar %>
+	
+	
   <div class="actions">
     <%= f.submit %>
   </div>
