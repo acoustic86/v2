@@ -6,7 +6,7 @@ gem 'rails', '4.0.0'
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-gem 'devise'
+gem 'devise',  '3.0.2'
 
 #gem 'jquery-ui-rails'
 
@@ -31,6 +31,10 @@ gem 'paperclip', "~> 3.5.0"
 
 gem 'sunspot_rails'
 gem 'sunspot_solr'
+
+gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
+
+gem 'kaminari'
 
 #gem 'less-rails', '~> 2.1.0'
 

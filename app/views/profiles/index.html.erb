@@ -14,7 +14,7 @@
       <th></th>
     </tr>
   </thead>  
-  
+ 
   <%= form_tag profiles_path, :method => :get do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
@@ -22,6 +22,9 @@
   </p>
   <% end %>
 
+
+	<%= paginate @profiles %>
+	
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
