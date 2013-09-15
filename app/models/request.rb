@@ -1,4 +1,4 @@
-class ShowRequest < ActiveRecord::Base
+class Request < ActiveRecord::Base
   
   belongs_to :profile
   

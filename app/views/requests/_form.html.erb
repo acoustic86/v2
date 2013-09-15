@@ -1,0 +1,14 @@
+<%= simple_form_for([@profile, @request]) do |f| %>
+  
+  <%= f.error_notification %> 
+  <%= f.input :date %>
+  <%= f.input :time %>
+  <%= f.input :description %>
+  
+  <br></br>
+  <br></br>
+  
+  <div class="btn">
+    <%= f.submit 'Update Request', :class => 'btn' %>
+  </div>
+<% end %>

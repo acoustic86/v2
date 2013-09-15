@@ -7,11 +7,11 @@ Showping::Application.routes.draw do
   
   
   resources :profiles do
-    resources :show_requests
+    resources :requests
   end
 
  
-  resources :show_requests#, only: :index
+  resources :requests#, only: :index
  
 
   root to: "profiles#index"

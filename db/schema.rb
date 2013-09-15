@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130914193931) do
+ActiveRecord::Schema.define(version: 20130914234131) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -69,9 +69,9 @@ ActiveRecord::Schema.define(version: 20130914193931) do
     t.text     "google_calendar"
   end
 
-  create_table "show_requests", force: true do |t|
-    t.date     "show_date"
-    t.time     "show_time"
+  create_table "requests", force: true do |t|
+    t.date     "date"
+    t.time     "time"
     t.text     "description"
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -79,10 +79,10 @@ ActiveRecord::Schema.define(version: 20130914193931) do
     t.integer  "user_id"
   end
 
-  add_index "show_requests", ["profile_id", "user_id"], name: "index_show_requests_on_profile_id_and_user_id", using: :btree
-  add_index "show_requests", ["profile_id"], name: "index_show_requests_on_profile_id", using: :btree
-  add_index "show_requests", ["user_id", "profile_id"], name: "index_show_requests_on_user_id_and_profile_id", using: :btree
-  add_index "show_requests", ["user_id"], name: "index_show_requests_on_user_id", using: :btree
+  add_index "requests", ["profile_id", "user_id"], name: "index_requests_on_profile_id_and_user_id", using: :btree
+  add_index "requests", ["profile_id"], name: "index_requests_on_profile_id", using: :btree
+  add_index "requests", ["user_id", "profile_id"], name: "index_requests_on_user_id_and_profile_id", using: :btree
+  add_index "requests", ["user_id"], name: "index_requests_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false

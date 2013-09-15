@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @request.date %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @request.time %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @request.description %>
+</p>
+
+<%= link_to 'Edit', edit_profile_request_path(@request.profile_id, @request) %> 
+<%= link_to 'Back', profile_path(@request.profile_id) %>

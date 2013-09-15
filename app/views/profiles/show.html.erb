@@ -13,7 +13,7 @@
 	<p class="lead text-center">
 	  
 	  <strong><%= @profile.name %></strong> <br />
-	  <strong><%= link_to 'Request a Show!', new_profile_show_request_path(@profile) %></strong>	    
+	  <strong><%= link_to 'Request a Show!', new_profile_request_path(@profile) %></strong>	    
 	</p>
 	
 	<p class="lead text-center">
@@ -63,26 +63,26 @@
 </table>
 
 <p class="text-center">  
-  <strong><%= link_to 'Request a Show', new_profile_show_request_path(@profile) %></strong>
+  <strong><%= link_to 'Make a Request', new_profile_request_path(@profile) %></strong>
 </p>
 	<br /> 
 	
 	<table class="table table-striped">
 	<tr>
-		<th>Show Request</th>		
-		<th>Show Date</th>
-		<th>Show Time</th>
+		<th>Request</th>		
+		<th>Date</th>
+		<th>Time</th>
 		<th>Description</th>
 	</tr>  
  
-	<% @profile.show_requests.each do |show_request| %>
-	<% if user_signed_in? && (current_user == show_request.user || current_user == @profile.user) %>
+	<% @profile.requests.each do |request| %>
+	<% if user_signed_in? && (current_user == request.user || current_user == @profile.user) %>
 	
 	  	<tr>
-	  	<td><%= link_to 'View Request', profile_show_request_path(@profile, show_request)%></td>
-	  	<td><%= show_request.show_date %></td>
-	  	<td><%= show_request.show_time %></td>
-	  	<td><%= show_request.description %></td>
+	  	<td><%= link_to 'View Request', profile_request_path(@profile, request)%></td>
+	  	<td><%= request.date %></td>
+	  	<td><%= request.time %></td>
+	  	<td><%= request.description %></td>
 	  </tr>
 	  <% end %>  
 	<% end %>
