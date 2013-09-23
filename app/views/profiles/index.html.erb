@@ -1,12 +1,12 @@
-<h1>Performers</h1>
+<h1>Profiles</h1>
 
 <table class="table">
   <thead>
     <tr>
       <th></th>      
-      <th>Name</th>      
-      <th>Experience (years)</th>
-      <th>Show type</th>
+      <th><%= sort_link @search, :name, "Name" %></th>      
+      <th><%= sort_link @search, :experience, "Experience (years)" %></th>
+      <th>Type</th>
       <th>Location</th>
       <th>One Hour Show</th>
       <th></th>
@@ -15,16 +15,31 @@
     </tr>
   </thead>  
  
-  <%= form_tag profiles_path, :method => :get do %>
+  <!--<%= form_tag profiles_path, :method => :get do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag "Search", :name => nil %>
   </p>
   <% end %>
+-->	
+	<%= search_form_for @search do |f| %>
+	<div class="field">
+	  <%= f.label :name_cont, "." %>
+	  <%= f.text_field :name_cont %>
+	</div>
+<!-- <div class="field">
+	  <%= f.label :base_price_gteq, "Price between" %>
+	  <%= f.text_field :base_price_gteq %>
+	  <%= f.label :base_price_lteq, "and" %>
+	  <%= f.text_field :base_price_lteq %> -->
+	</div>
+	<div class="btn"><%= f.submit "Search" %></div>
+	<% end %>
 
-
-	<%= paginate @profiles %>
 	
+
+	<!-- %= paginate @profiles %> -->
+
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
@@ -33,7 +48,7 @@
         <td><%= profile.experience %></td>
         <td><%= profile.show_type %></td>
         <td><%= profile.current_location %></td>
-        <td><%= profile.base_price %></td>
+        <td><%= number_to_currency profile.base_price %></td>
         <!--<td><%= link_to 'Show', profile %></td>
         <% if user_signed_in? && current_user == profile.user %>
         <td><%= link_to 'Edit', edit_profile_path(profile) %></td>

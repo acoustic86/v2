@@ -13,8 +13,8 @@ class RequestsController < ApplicationController
   # GET /requests/1.json
   def show
     @profile = Profile.find(params[:profile_id])
+    @user = current_user
   end
-
   # GET /requests/new
   def new
     @user = current_user
@@ -32,10 +32,11 @@ class RequestsController < ApplicationController
   # POST /requests.json
   def create    
     @profile = Profile.find(params[:profile_id])
-    @request = @profile.requests.build(request_params)
-    #@request = current_user.requests.build(request_params)
-    @request.user_id = current_user.id
-    
+    @user = current_user
+    #@request = @profile.requests.build(request_params)
+    @request = @user.requests.build(request_params)
+    @request.profile_id = @profile.id
+   
 
     respond_to do |format|
       if @request.save
@@ -54,7 +55,8 @@ class RequestsController < ApplicationController
     
     respond_to do |format|
       if @request.update(request_params)
-        format.html { redirect_to profile_request_path(@request.profile, @request), notice: 'Request was successfully updated.' }
+        #format.html { redirect_to profile_request_path(@request.profile, @request), notice: 'Request was successfully updated.' }
+        format.html { redirect_to profile_path(@request.profile_id), notice: 'Request was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -89,6 +91,6 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.require(:request).permit(:date, :time, :description)
+      params.require(:request).permit(:date, :time, :description, :profile_id, :user_id)
     end
 end

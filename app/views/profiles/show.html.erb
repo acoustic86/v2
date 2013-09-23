@@ -20,6 +20,14 @@
 	<%= image_tag @profile.image.url() %>
 	</p>
 	
+	
+	
+	<% if @profile.youtube_url?%>
+	<p>
+	<%= raw (youtube_embed(@profile.youtube_url)) %>
+	</p> 
+	<% end %>
+	
 	<p class="lead text-right">
 	  <strong>About:   </strong>
 	  <%= @profile.description %>
@@ -44,12 +52,6 @@
 	  <strong>Base price:</strong>
 	  <%= @profile.base_price %>
 	</p>
-	
-	<% if @profile.youtube_url?%>
-	<p>
-	<%= raw (youtube_embed(@profile.youtube_url)) %>
-	</p> 
-	<% end %>
 	
 	<% if @profile.google_calendar?%>
 	<p>

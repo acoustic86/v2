@@ -10,9 +10,11 @@ class ProfilesController < ApplicationController
     #@search = Profile.search do
       #fulltext params[:search]
     #end
-    #@profiles = Profile.all    
-    @profiles = Profile.order("name").page(params[:page]).per(15)
-    #@profiles = @search.results
+    #@profiles = Profile.all 
+      
+    @search = Profile.search(params[:q]) 
+    @profiles = @search.result(distinct: true).order("name").page(params[:page])
+    #@profiles = @search.result
   end
 
   # GET /profiles/1

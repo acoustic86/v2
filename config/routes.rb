@@ -1,17 +1,38 @@
 Showping::Application.routes.draw do
-  devise_for :admin_users, ActiveAdmin::Devise.config
-  ActiveAdmin.routes(self)
   
-  devise_for :users 
-  #ActiveAdmin.routes(self)
+   devise_for :users 
   
-  
-  resources :profiles do
+  devise_for :admin_users, ActiveAdmin::Devise.config 
+    ActiveAdmin.routes(self) do
+      resources :requests
+    end
+  resources :users do
     resources :requests
   end
+  
+  resources :profiles do
+      resources :requests
+  end
+  
+  resources :requests
+  
+  namespace :admin do
+    resources :profiles do
+      resources :requests
+    end
+  end
+  namespace :admin do
+    resources :users do
+      resources :requests
+    end    
+  end
+  
+  #namespace :admin do
+    #resources :requests
+  #end
 
  
-  resources :requests#, only: :index
+  #resources :requests#, only: :index
  
 
   root to: "profiles#index"

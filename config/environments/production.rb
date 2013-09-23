@@ -13,6 +13,8 @@ Showping::Application.configure do
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
+  
+  config.assets.precompile += %w( ie6.css ie7.css )
 
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.
@@ -77,4 +79,8 @@ Showping::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+  
+  #if activeadmin doesn't deploy try:
+  #config.assets.precompile += ['active_admin.js', 'active_admin.css']
+  #then run rake assets:precompile
 end
