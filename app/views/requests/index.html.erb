@@ -16,8 +16,8 @@
     <% @requests.each do |request| %>
       <tr>
       <% if user_signed_in? && current_user == request.user %>
-        <td><%= request.date %></td>
-        <td><%= request.time %></td>
+        <td><%= request.date.strftime("%B %d, %Y") %></td>
+        <td><%= request.time.strftime("%I:%M %p") %></td>
         <td><%= request.description %></td>
       
         <td><%= link_to 'Show',  profile_request_path(request.profile_id, request) %></td>

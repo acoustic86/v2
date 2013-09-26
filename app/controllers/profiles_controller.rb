@@ -11,9 +11,17 @@ class ProfilesController < ApplicationController
       #fulltext params[:search]
     #end
     #@profiles = Profile.all 
+    if params[:locate].present?
+      @search = Profile.near(params[:locate], 50).search(params[:q])      
+    else
+      @search = Profile.search(params[:q])
+    end
+    
+    @profiles = @search.result.page(params[:page]).per(10)
       
-    @search = Profile.search(params[:q]) 
-    @profiles = @search.result(distinct: true).order("name").page(params[:page])
+    #@search = Profile.search(params[:q]) 
+    #@profiles = @search.result(distinct: true).order("name").page(params[:page], per_page => 10)
+    #@profiles = Profile.near(params[:search], 50).search(params[:search]).relation.paginate(:page => params[:page], :per_page => 9)
     #@profiles = @search.result
   end
 
@@ -90,6 +98,7 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:first_name, :last_name, :description, :experience, :show_type, :current_location, :base_price, :user_id, :image, :youtube_url, :name, :google_calendar)
+      params.require(:profile).permit(:first_name, :last_name, :description, :experience, :show_type, :current_location, :base_price,
+       :user_id, :image, :youtube_url, :name, :google_calendar, :latitude, :longitude)
     end
 end

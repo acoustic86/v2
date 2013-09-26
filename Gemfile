@@ -36,6 +36,10 @@ gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
 
 gem 'kaminari'
 
+gem 'geocoder'
+
+gem 'jquery-turbolinks'
+
 #gem 'less-rails', '~> 2.1.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

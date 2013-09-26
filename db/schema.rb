@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130914234131) do
+ActiveRecord::Schema.define(version: 20130924003816) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,8 @@ ActiveRecord::Schema.define(version: 20130914234131) do
     t.string   "youtube_url"
     t.string   "name"
     t.text     "google_calendar"
+    t.float    "latitude"
+    t.float    "longitude"
   end
 
   create_table "requests", force: true do |t|

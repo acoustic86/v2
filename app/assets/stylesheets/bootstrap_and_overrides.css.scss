@@ -1,4 +1,5 @@
 // Set the correct sprite paths
+
 $iconSpritePath: asset-url('glyphicons-halflings.png', image);
 $iconWhiteSpritePath: asset-url('glyphicons-halflings-white.png', image);
 
@@ -7,10 +8,17 @@ $navbarBackgroundHighlight: #888;
 $navbarText: #eee;
 $navbarLinkColor: #eee;
 
+
+
 @import "bootstrap";
-body { padding-top: 60px; }
+body { padding-top: 60px;}
+
 @import "bootstrap-responsive";
 
 .navbar .brand {
   font-size: 25px;
 }
+
+#map-canvas label { width: auto; display:inline; }
+#map-canvas img { max-width: none; }
+

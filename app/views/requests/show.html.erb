@@ -2,12 +2,12 @@
 
 <p>
   <strong>Date:</strong>
-  <%= @request.date %>
+  <%= @request.date.strftime("%B %d, %Y") %>
 </p>
 
 <p>
   <strong>Time:</strong>
-  <%= @request.time %>
+  <%= @request.time.strftime("%I:%M %p") %>
 </p>
 
 <p>

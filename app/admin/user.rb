@@ -8,14 +8,29 @@ ActiveAdmin.register User do
   end
   
  show do |user|
+   
+   div do     
+     user.id     
+   end
+   
+   div do     
+     user.email    
+   end 
+   
+   
     div do      
       panel("Requests") do
         table_for(user.requests) do
+          column :id do |r|
+            link_to r.id, admin_request_path(r)
+          end
           column :date
           column :time
           column :description
-          column "Name" do |i| 
-            i.profile.name
+          column "Name" do |i|
+            if i.profile.present?
+              i.profile.name
+            end 
           end         
         end
       end

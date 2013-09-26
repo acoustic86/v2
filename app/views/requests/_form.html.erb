@@ -1,12 +1,12 @@
-<%= simple_form_for([@profile, @request]) do |f| %>
-  
-  <%= f.error_notification %> 
-  <!-- <%= f.input :profile, :value => Profile.find(params[:profile_id]).id %>
-  <%= f.input :user, :value => current_user.id %> -->
-  <%= f.input :date %>
-  <%= f.input :time %>
-  <%= f.input :description %>
-  
+<%= semantic_form_for([@profile, @request]) do |f| %>
+  <%= f.inputs :name => "Advanced" do %>
+	 <!-- %= f.error_notification %> -->
+	  <!-- <%= f.input :profile, :value => Profile.find(params[:profile_id]).id %>
+	  <%= f.input :user, :value => current_user.id %> -->	  
+	  <%= f.input :date %>
+	  <%= f.input :time %>
+	  <%= f.input :description %>
+  <% end %>
   <br></br> 
   
   <div class="">

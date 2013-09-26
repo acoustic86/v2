@@ -1,4 +1,4 @@
-<h1>Profiles</h1>
+<h1></h1>
 
 <table class="table">
   <thead>
@@ -13,37 +13,54 @@
       <th></th>
       <th></th>
     </tr>
-  </thead>  
+  </thead>
+  
+  <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#search">
+  Open Search
+  </button>
  
-  <!--<%= form_tag profiles_path, :method => :get do %>
-  <p>
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil %>
-  </p>
-  <% end %>
--->	
-	<%= search_form_for @search do |f| %>
+   
+  
+  <div id="search" data-spy="affix-bottom" data-offset-top="200" class="collapse in" >
+  <%= search_form_for @search do |f|%>
+  <div class="row">
+  	<div class="span4">
+    <!-- <%= text_field_tag :search, params[:search] %> -->
+    <%= f.label :name_cont, "Search By Name" %>
+    <%= f.text_field :name_cont, :class => "span3" %>
+    </div>
+    <div class="span4">
+    <%= label_tag :Search_By_City %>
+    <%= text_field_tag :locate, params[:locate], {:class => "span3" } %> 
+    </div>
+    <div class="span4">
+    <%= f.submit "Search", {:class => "btn" } %> 
+    </div>
+  
+  
+
+<!-- <%= search_form_for @search do |f| %>
 	<div class="field">
 	  <%= f.label :name_cont, "." %>
 	  <%= f.text_field :name_cont %>
-	</div>
+	</div> -->	
 <!-- <div class="field">
 	  <%= f.label :base_price_gteq, "Price between" %>
 	  <%= f.text_field :base_price_gteq %>
 	  <%= f.label :base_price_lteq, "and" %>
-	  <%= f.text_field :base_price_lteq %> -->
-	</div>
-	<div class="btn"><%= f.submit "Search" %></div>
-	<% end %>
-
+	  <%= f.text_field :base_price_lteq %> 
 	
-
-	<!-- %= paginate @profiles %> -->
+	<div class="btn"><%= f.submit "Search" %></div>-->
+	<% end %>
+<% end %>
+</div>	
+ <br></br>
+ <%= paginate @profiles %> 
 
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-      	<td><%= link_to (image_tag profile.image.url(:thumb)), profile %></td>        
+      	<td class="thumbnails"><%= link_to (image_tag profile.image.url(:thumb)), profile %></td>        
         <td><%= profile.name %></td>        
         <td><%= profile.experience %></td>
         <td><%= profile.show_type %></td>
