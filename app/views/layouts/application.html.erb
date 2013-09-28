@@ -44,7 +44,8 @@
           	<a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse"> 
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
-            <span class="icon-bar"></span>            
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>             
           </a>
           <a class="brand" href="/">LADOSHA</a>
           <div class="container nav-collapse">
@@ -56,10 +57,18 @@
 				<% else %>
 				  <li><%= link_to "Sign up", new_user_registration_path %> </li>
 				  <li><%= link_to "Login", new_user_session_path %></li>
-				<% end %>				
+				<% end %>
+				<% if current_user.profiles.any? %>				
                 <li><%= link_to "Profiles", profiles_path  %></li>
+                <% end %>
+                <% if current_user.requests.any? %>	
                 <li><%= link_to "Requests", user_requests_path(current_user)  %></li>
-                            
+                <% end %>
+                <li>
+                <button type="button" class="btn btn-success" data-toggle="collapse" data-target="#search">
+				  Open Search
+				</button>
+				</li>	            
             </ul>
           </div><!--/.nav-collapse -->
         </div> 

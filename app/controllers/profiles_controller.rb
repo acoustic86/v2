@@ -31,8 +31,7 @@ class ProfilesController < ApplicationController
   end
 
   # GET /profiles/new
-  def new
-    #@profile = Profile.new
+  def new    
     @user = current_user
     @profile = Profile.new(:user_id => @user.id)
   end

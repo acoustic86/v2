@@ -15,26 +15,21 @@
     </tr>
   </thead>
   
-  <button type="button" class="btn btn-danger" data-toggle="collapse" data-target="#search">
-  Open Search
-  </button>
- 
    
-  
-  <div id="search" data-spy="affix-bottom" data-offset-top="200" class="collapse in" >
+  <div id="search" data-spy="affix-bottom" data-offset-top="200" class="collapse form-search form-inline" >
   <%= search_form_for @search do |f|%>
   <div class="row">
-  	<div class="span4">
+  	<div class="span3">
     <!-- <%= text_field_tag :search, params[:search] %> -->
-    <%= f.label :name_cont, "Search By Name" %>
-    <%= f.text_field :name_cont, :class => "span3" %>
+    <!-- <%= f.label :name_cont, " ." %> -->
+    <%= f.text_field :name_cont, {:class => "input-medium search-query", :placeholder => "Search By Name"} %>
     </div>
-    <div class="span4">
-    <%= label_tag :Search_By_City %>
-    <%= text_field_tag :locate, params[:locate], {:class => "span3" } %> 
+    <div class="span3>
+    <%= label_tag :_ %> 
+    <%= text_field_tag :locate, params[:locate], {:class => "input-medium search-query", :placeholder => "Search By City" } %> 
     </div>
-    <div class="span4">
-    <%= f.submit "Search", {:class => "btn" } %> 
+    <div class="span3">
+    <%= f.submit "Search", {:class => "btn " } %> 
     </div>
   
   
@@ -60,7 +55,7 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-      	<td class="thumbnails"><%= link_to (image_tag profile.image.url(:thumb)), profile %></td>        
+      	<td class="thumbnails"><%= link_to (image_tag profile.image.url(:medium)), profile %></td>        
         <td><%= profile.name %></td>        
         <td><%= profile.experience %></td>
         <td><%= profile.show_type %></td>
