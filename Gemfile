@@ -3,6 +3,8 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
+ruby "1.9.3"
+
 # Use postgresql as the database for Active Record
 gem 'pg'
 
@@ -27,18 +29,20 @@ gem 'simple_form'
 
 gem 'bootstrap-will_paginate', '0.0.9'
 
-gem 'paperclip', "~> 3.5.0"
+gem 'paperclip'
 
 gem 'sunspot_rails'
 gem 'sunspot_solr'
 
-gem 'activeadmin', github: 'gregbell/active_admin', branch: 'rails4'
+gem 'activeadmin', github: 'gregbell/active_admin'
 
 gem 'kaminari'
 
 gem 'geocoder'
 
 gem 'jquery-turbolinks'
+
+gem 'rails_12factor', group: :production
 
 #gem 'less-rails', '~> 2.1.0'
 
