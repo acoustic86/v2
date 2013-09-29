@@ -10,6 +10,10 @@ Showping::Application.routes.draw do
     resources :requests
   end
   
+  resources :users do
+    resources :profiles
+  end
+  
   resources :profiles do
       resources :requests
   end

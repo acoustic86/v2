@@ -2,7 +2,7 @@ class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]  
   before_action :owns_request, only: [:edit, :update, :destroy]
-
+  
   # GET /requests
   # GET /requests.json
   def index
@@ -78,11 +78,12 @@ class RequestsController < ApplicationController
   private
   
     def owns_request
+       @profile = Profile.find(params[:profile_id])
       #if !user_signed_in? || current_user != Profile.find(params[:id]).user
-      if !user_signed_in? || current_user.requests.find_by(id: params[:id]).nil?
-        redirect_to requests_path, error: "Cannot modify profiles you don't own"
+      if !user_signed_in? || current_user.requests.find_by(id: params[:id]).nil? 
+        redirect_to requests_path, error: "Cannot modify requests you don't own" 
       end
-    end
+    end    
   
     # Use callbacks to share common setup or constraints between actions.
     def set_request

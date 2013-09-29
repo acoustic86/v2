@@ -1,3 +1,4 @@
+<!-- <button type="button" class="btn-mini btn-success" data-toggle="collapse" data-target="#search"> Open/Close Search </button> -->
 <h1></h1>
 
 <table class="table">
@@ -16,20 +17,23 @@
   </thead>
   
    
-  <div id="search" data-spy="affix-bottom" data-offset-top="200" class="collapse form-search form-inline" >
+  <div id="search" data-spy="affix-bottom" data-offset-top="200" class="collapse in form-search form-inline" >
   <%= search_form_for @search do |f|%>
   <div class="row">
   	<div class="span3">
+  		<%= f.text_field :show_type_cont, {:class => "input-medium search-query", :placeholder => "Search by Profession"} %>
+  	</div>
+  	<div class="span3">
     <!-- <%= text_field_tag :search, params[:search] %> -->
     <!-- <%= f.label :name_cont, " ." %> -->
-    <%= f.text_field :name_cont, {:class => "input-medium search-query", :placeholder => "Search By Name"} %>
+    	<%= f.text_field :name_cont, {:class => "input-medium search-query", :placeholder => "Search By Name"} %>
     </div>
     <div class="span3>
-    <%= label_tag :_ %> 
-    <%= text_field_tag :locate, params[:locate], {:class => "input-medium search-query", :placeholder => "Search By City" } %> 
+	    <%= label_tag :_ %> 
+	    <%= text_field_tag :locate, params[:locate], {:class => "input-medium search-query", :placeholder => "Search By City" } %> 
     </div>
     <div class="span3">
-    <%= f.submit "Search", {:class => "btn " } %> 
+    	<%= f.submit "Search", {:class => "btn " } %> 
     </div>
   
   
@@ -53,22 +57,30 @@
  <%= paginate @profiles %> 
 
   <tbody>
-    <% @profiles.each do |profile| %>
-      <tr>
-      	<td class="thumbnails"><%= link_to (image_tag profile.image.url(:medium)), profile %></td>        
-        <td><%= profile.name %></td>        
-        <td><%= profile.experience %></td>
-        <td><%= profile.show_type %></td>
-        <td><%= profile.current_location %></td>
-        <td><%= number_to_currency profile.base_price %></td>
-        <!--<td><%= link_to 'Show', profile %></td>
-        <% if user_signed_in? && current_user == profile.user %>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <% end %>
-        -->
-      </tr>
-    <% end %>
+  	<div class="container-fluid media">
+  		<div class="row-fluid">
+  			<div class="span4">
+		    <% @profiles.each do |profile| %>
+		      <tr>
+		      	
+		      	<td class="thumbnails"><%= link_to (image_tag profile.image.url(:medium)), profile %></td>        
+		        <td><%= profile.name %></td>        
+		        <td><%= profile.experience %></td>
+		        <td><%= profile.show_type %></td>
+		        <td><%= profile.current_location %></td>
+		        <td><%= number_to_currency profile.base_price %></td>
+		        <!--<td><%= link_to 'Show', profile %></td>
+		        <% if user_signed_in? && current_user == profile.user %>
+		        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+		        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+		        <% end %>
+		        -->
+		        
+		      </tr>
+		    <% end %>
+		</div>
+	  </div>
+	</div>
   </tbody>
 </table>
 
