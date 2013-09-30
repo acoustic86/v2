@@ -13,6 +13,7 @@
   </thead>
 
   <tbody>
+  	
     <% @requests.each do |request| %>
       <tr>
       <% if user_signed_in? && current_user == request.user %>
@@ -26,6 +27,7 @@
       <% end %> 
       </tr>
     <% end %>
+  
   </tbody>
 </table>
 </br> </br>
@@ -60,4 +62,4 @@
 
 </br>
 
-<!--<%= link_to 'New Request', new_profile_request_path(@profile) %>-->
+

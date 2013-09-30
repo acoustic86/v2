@@ -9,7 +9,7 @@
       <th><%= sort_link @search, :experience, "Experience (years)" %></th>
       <th>Type</th>
       <th>Location</th>
-      <th>One Hour Show</th>
+      <th>$$$</th>
       <th></th>
       <th></th>
       <th></th>
@@ -17,11 +17,11 @@
   </thead>
   
    
-  <div id="search" data-spy="affix-bottom" data-offset-top="200" class="collapse in form-search form-inline" >
+  <div id="search" data-spy="affix-bottom" data-offset-top="20" class="collapse in form-search form-inline" >
   <%= search_form_for @search do |f|%>
   <div class="row">
   	<div class="span3">
-  		<%= f.text_field :show_type_cont, {:class => "input-medium search-query", :placeholder => "Search by Profession"} %>
+  		<%= f.text_field :profession_cont, {:class => "input-medium search-query", :placeholder => "Search by Profession"} %>
   	</div>
   	<div class="span3">
     <!-- <%= text_field_tag :search, params[:search] %> -->
@@ -66,7 +66,7 @@
 		      	<td class="thumbnails"><%= link_to (image_tag profile.image.url(:medium)), profile %></td>        
 		        <td><%= profile.name %></td>        
 		        <td><%= profile.experience %></td>
-		        <td><%= profile.show_type %></td>
+		        <td><%= profile.profession %></td>
 		        <td><%= profile.current_location %></td>
 		        <td><%= number_to_currency profile.base_price %></td>
 		        <!--<td><%= link_to 'Show', profile %></td>
