@@ -16,7 +16,7 @@ ActiveAdmin.register Profile do
       link_to profile.name, admin_profile_path(profile)
     end
     column :experience
-    column :show_type
+    column :profession
     column :current_location
     column :base_price, :sortable => :base_price do |profile|
       div :class => "price" do

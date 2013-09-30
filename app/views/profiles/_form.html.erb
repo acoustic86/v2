@@ -1,52 +1,5 @@
 <%= simple_form_for(@profile) do |f| %>
-  <!--<% if @profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
-
-      <ul>
-      <% @profile.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
-  </div>
-  <div class="field">
-    <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
-  </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
-  <div class="field">
-    <%= f.label :experience %><br>
-    <%= f.number_field :experience %>
-  </div>
-  <div class="field">
-    <%= f.label :show_type %><br>
-    <%= f.text_field :show_type %>
-  </div>
-  <div class="field">
-    <%= f.label :current_location %><br>
-    <%= f.text_area :current_location %>
-  </div>
-  <div class="field">
-    <%= f.label :base_price %><br>
-    <%= f.number_field :base_price %>
-  </div>
   
-  <div class="field">
-    <%= f.label :image%><br>
-    <%= f.file_field :image %>
-  </div><br />
-  
-  <%= f.input :youtube_url %><br />
--->
   <%= f.error_notification %>   
   <%= f.input :name %>
   <%= f.input :description, label: 'Info' %>

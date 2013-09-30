@@ -1,4 +1,4 @@
-<!-- <button type="button" class="btn-mini btn-success" data-toggle="collapse" data-target="#search"> Open/Close Search </button> -->
+<!-- button type="button" class="btn-mini btn-success" data-toggle="collapse" data-target="#search"> Open/Close Search </button> -->
 <h1></h1>
 
 <table class="table">
@@ -7,7 +7,7 @@
       <th></th>      
       <th><%= sort_link @search, :name, "Name" %></th>      
       <th><%= sort_link @search, :experience, "Experience (years)" %></th>
-      <th>Type</th>
+      <th>Profession</th>
       <th>Location</th>
       <th>$$$</th>
       <th></th>
@@ -35,23 +35,8 @@
     <div class="span3">
     	<%= f.submit "Search", {:class => "btn " } %> 
     </div>
-  
-  
+   <% end %>
 
-<!-- <%= search_form_for @search do |f| %>
-	<div class="field">
-	  <%= f.label :name_cont, "." %>
-	  <%= f.text_field :name_cont %>
-	</div> -->	
-<!-- <div class="field">
-	  <%= f.label :base_price_gteq, "Price between" %>
-	  <%= f.text_field :base_price_gteq %>
-	  <%= f.label :base_price_lteq, "and" %>
-	  <%= f.text_field :base_price_lteq %> 
-	
-	<div class="btn"><%= f.submit "Search" %></div>-->
-	<% end %>
-<% end %>
 </div>	
  <br></br>
  <%= paginate @profiles %> 
@@ -69,12 +54,7 @@
 		        <td><%= profile.profession %></td>
 		        <td><%= profile.current_location %></td>
 		        <td><%= number_to_currency profile.base_price %></td>
-		        <!--<td><%= link_to 'Show', profile %></td>
-		        <% if user_signed_in? && current_user == profile.user %>
-		        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-		        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-		        <% end %>
-		        -->
+		        
 		        
 		      </tr>
 		    <% end %>
