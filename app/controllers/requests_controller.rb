@@ -36,6 +36,7 @@ class RequestsController < ApplicationController
     #@request = @profile.requests.build(request_params)
     @request = @user.requests.build(request_params)
     @request.profile_id = @profile.id
+    @request.profile = @profile
    
 
     respond_to do |format|
