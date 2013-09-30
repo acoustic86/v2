@@ -16,7 +16,7 @@
   	
     <% @requests.each do |request| %>
       <tr>
-      <% if user_signed_in? && current_user == request.user %>
+      <% if user_signed_in? && current_user = request.user %>
         <td><%= request.date.strftime("%B %d, %Y") %></td>
         <td><%= request.time.strftime("%I:%M %p") %></td>
         <td><%= request.description %></td>
@@ -48,7 +48,7 @@
   <tbody>
     <% @requests.each do |request| %>
       <tr>
-      <% if user_signed_in? && current_user == request.profile.user %>
+      <% if user_signed_in? && current_user = request.profile.user %>
         <td><%= request.date.strftime("%B %d, %Y") %></td>
         <td><%= request.time.strftime("%I:%M %p") %></td>
         <td><%= request.description %></td>
@@ -59,7 +59,3 @@
     <% end %>
   </tbody>
 </table>
-
-</br>
-
-
