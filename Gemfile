@@ -30,6 +30,7 @@ gem 'simple_form'
 gem 'bootstrap-will_paginate', '0.0.9'
 
 gem 'paperclip'
+gem 'aws-sdk'
 
 gem 'sunspot_rails'
 gem 'sunspot_solr'

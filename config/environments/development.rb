@@ -33,4 +33,14 @@ Showping::Application.configure do
   Paperclip.options[:swallow_stderr] = false
   # if doesn't work try:
   #Paperclip.options[:command_path] = "C:/ImageM~1"
+  
+  #Amazon S3 settings for Paperclip uploads
+  #config.paperclip_defaults = {
+  #:storage => :s3,
+  #:s3_credentials => {
+    #:bucket => ENV['AWS_BUCKET'],
+    #:access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+    #:secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+  #}
+#}
 end

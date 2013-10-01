@@ -2,8 +2,20 @@ class Profile < ActiveRecord::Base
   
   has_many :requests  
   belongs_to :user  
-  has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "250x250>" }, :default_url => "/images/:style/No_Image.png"
+  #has_attached_file :image, :styles => { :medium => "300x300>", :thumb => "250x250>" }, :default_url => "/images/:style/No_Image.png"
   paginates_per 50
+  
+  # This method associates the attribute ":avatar" with a file attachment
+  has_attached_file :image, styles: {
+    thumb: '200x200>',
+    square: '360x280#',
+    medium: '300x300>'
+  },
+  :default_url => "/images/:style/No_Image.png"
+  #:s3_credentials => S3_CREDENTIALS,
+  #:storage => :s3,
+  
+
   
   #searchable do
     #text :name, :profession, :latitude, :longitude    
