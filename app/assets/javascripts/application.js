@@ -18,4 +18,5 @@
 // Loads all Bootstrap javascripts
 //= require bootstrap
 //= require bootstrap-collapse
+//= requre american_date
 //= require_tree .

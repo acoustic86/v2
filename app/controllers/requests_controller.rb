@@ -24,7 +24,8 @@ class RequestsController < ApplicationController
 
   # GET /requests/1/edit
   def edit
-    @profile = Profile.find(params[:profile_id])
+    @profile = Profile.find(params[:profile_id])    
+    
     #@request = Request.find(request_params)    
   end
   
@@ -33,11 +34,10 @@ class RequestsController < ApplicationController
   def create    
     @profile = Profile.find(params[:profile_id])
     @user = current_user
-    #@request = @profile.requests.build(request_params)
     @request = @user.requests.build(request_params)
     @request.profile_id = @profile.id
     @request.profile = @profile
-   
+    #@request.date = DateTime.strptime(params[:request][:date], '%m/%d/%Y').to_date
 
     respond_to do |format|
       if @request.save
@@ -52,10 +52,9 @@ class RequestsController < ApplicationController
 
   # PATCH/PUT /requests/1
   # PATCH/PUT /requests/1.json
-  def update    
-    
+  def update
     respond_to do |format|
-      if @request.update(request_params)
+      if @request.update(request_params)       
         #format.html { redirect_to profile_request_path(@request.profile, @request), notice: 'Request was successfully updated.' }
         format.html { redirect_to profile_path(@request.profile_id), notice: 'Request was successfully updated.' }
         format.json { head :no_content }
