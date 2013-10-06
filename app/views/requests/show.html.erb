@@ -12,6 +12,17 @@
   <strong>Description:</strong>
   <%= @request.description %>
 </p>
+<p>
+</p>
+<p>
+  <strong>Created At:</strong>
+  <%= @request.created_at %>
+</p>
+<p>
+  <strong>Updated At:</strong>
+  <%= @request.updated_at %>
+</p>
+
 
 <%= link_to 'Edit', edit_profile_request_path(@request.profile_id, @request) %> 
 <%= link_to 'Back', profile_path(@request.profile_id) %>

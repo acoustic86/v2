@@ -12,4 +12,6 @@ class User < ActiveRecord::Base
   #has_many :requests, through: :profiles
   has_many :requests
  #accepts_nested_attributes_for :requests
+ 
+  validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map(&:name)
 end

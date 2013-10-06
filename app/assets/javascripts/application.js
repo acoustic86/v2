@@ -19,4 +19,5 @@
 //= require bootstrap
 //= require bootstrap-collapse
 //= requre american_date
+//= require bootstrap-timepicker
 //= require_tree .

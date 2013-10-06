@@ -3,14 +3,16 @@
 	 %= f.error_notification % 
 	   f.input :profile, :value => Profile.find(params[:profile_id]).id 
 	  < f.input :user, :value => current_user.id
-	  end % -->	  
-	 
-	  <%= f.input :date, as: :string, :id => "datepicker col-span-3", input_html: { class: "datepicker", value: Date.today.strftime('%m/%d/%Y')}%>
+	  end % -->	 
 	  
+	<%= f.error_notification %>
 	 
-	  <%= f.input :time %>
+	  <%= f.input :date, as: :string, :id => "datepicker col-span-3", input_html: { class: "datepicker", value: Time.zone.now.to_date.strftime('%m/%d/%Y')}%>
+		  
+	  <%= f.input :time, as: :time, :minute_step => 15, :ampm => true, input_html: { class: "dateselect-time input-small", value: Time.zone.now.utc.strftime("%I:%M %p")} %>
+	       <!-- f.input :time, :as => :time_picker  "use this for formtastic"-->
+      
 	  <%= f.input :description %>
-  
   <br></br> 
   
   <div class="">
