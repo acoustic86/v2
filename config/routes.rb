@@ -1,21 +1,27 @@
 Showping::Application.routes.draw do
   
-   devise_for :users 
+  devise_for :users 
   
   devise_for :admin_users, ActiveAdmin::Devise.config 
     ActiveAdmin.routes(self) do
       resources :requests
     end
   resources :users do
-    resources :requests
+    resources :requests do
+      resources :comments
+    end
   end
+  
+  resources :comments
   
   resources :users do
     resources :profiles
   end
   
   resources :profiles do
-      resources :requests
+      resources :requests do
+        resources :comments
+      end
   end
   
   resources :requests
@@ -30,13 +36,10 @@ Showping::Application.routes.draw do
       resources :requests
     end    
   end
-  
-  #namespace :admin do
-    #resources :requests
-  #end
-
- 
-  #resources :requests#, only: :index
+   
+  resources :requests do
+    resources :comments
+  end
  
 
   root to: "profiles#index"

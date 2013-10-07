@@ -47,6 +47,8 @@ gem 'jquery-turbolinks'
 
 gem 'rails_12factor', group: :production
 
+gem 'acts_as_commentable'
+
 #gem 'less-rails', '~> 2.1.0'
 
 # See https://github.com/sstephenson/execjs#readme for more supported runtimes

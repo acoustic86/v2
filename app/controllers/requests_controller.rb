@@ -12,8 +12,13 @@ class RequestsController < ApplicationController
   # GET /requests/1
   # GET /requests/1.json
   def show
-    @profile = Profile.find(params[:profile_id])
+    #@profile = Profile.find(params[:profile_id])
     @user = current_user
+    @request = Request.find(params[:id])
+  #enable comments
+    @commentable = @request
+    @comments = @commentable.comments
+    @comment = Comment.new
   end
   # GET /requests/new
   def new

@@ -26,3 +26,9 @@
 
 <%= link_to 'Edit', edit_profile_request_path(@request.profile_id, @request) %> 
 <%= link_to 'Back', profile_path(@request.profile_id) %>
+
+<h2>Comments</h2>
+<% if user_signed_in? && (current_user == @comment.user || current_user == @commentable.profile.user) %>
+<%= render "comments/comments" %>
+<%= render "comments/form" %>
+<% end %>

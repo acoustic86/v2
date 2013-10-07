@@ -8,10 +8,10 @@ $navbarBackgroundHighlight: #888;
 $navbarText: #eee;
 $navbarLinkColor: #eee;
 
-
-
 @import "bootstrap";
-body { padding-top: 60px;}
+body { padding-top: 60px; 
+//background: url('background.png');
+}
 
 @import "bootstrap-responsive";
 @import "bootstrap-datepicker";
