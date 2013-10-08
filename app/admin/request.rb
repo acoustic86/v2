@@ -80,23 +80,22 @@ ActiveAdmin.register Request do
      end 
      
       div do      
-        panel("Comments") do
-          table_for(request.comments) do
-            column :id do |c|
-              link_to c.id, admin_comment_path(c)
+        panel("Comments") do 
+          
+            table_for(request.comments) do
+              column :id #do |c|
+                #link_to c.id, admin_comment_path(c)
+              #end
+              column :title
+              column :comment
+              column :commentable
+              column :commentable_type
+              column :role
+              column :created_at
+              column :updated_at
             end
-            column :title
-            column :comment
-            column :commentable
-            column :commentable_type
-            column :role
-            column :created_at
-            column :updated_at
-          end
+        
         end
       end 
     end         
 end
-
-
-
