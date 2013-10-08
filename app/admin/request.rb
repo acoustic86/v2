@@ -61,6 +61,40 @@ ActiveAdmin.register Request do
         f.input :profile
       end
       f.actions
+    end
+    
+    
+#show related comments    
+   show do |request|
+     attributes_table do
+       row  "Name" do |i|
+        if i.profile.present?
+         link_to i.profile.name, admin_profile_path(i.profile)
+        end
+       end
+       row  :date
+       row  :time
+       row  :description
+       row  :created_at
+       row  :updated_at
+     end 
+     
+      div do      
+        panel("Comments") do
+          table_for(request.comments) do
+            column :id do |c|
+              link_to c.id, admin_comment_path(c)
+            end
+            column :title
+            column :comment
+            column :commentable
+            column :commentable_type
+            column :role
+            column :created_at
+            column :updated_at
+          end
+        end
+      end 
     end         
 end
 

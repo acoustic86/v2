@@ -48,7 +48,8 @@
 		    <% @profiles.each do |profile| %>
 		      <tr>
 		      	
-		      	<td class="thumbnails"><%= link_to (image_tag profile.image.url(:medium)), profile %></td>        
+		      	<td class="thumbnails visible-tablet visible-desktop hidden-phone"><%= link_to (image_tag profile.image.url(:medium)), profile %></td>
+		      	<td class="thumbnails hidden-tablet hidden-desktop visible-phone"><%= link_to (image_tag profile.image.url(:thumb)), profile %></td>        
 		        <td><%= profile.name %></td>        
 		        <td><%= profile.experience %></td>
 		        <td><%= profile.profession %></td>

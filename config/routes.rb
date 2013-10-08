@@ -36,6 +36,12 @@ Showping::Application.routes.draw do
       resources :requests
     end    
   end
+  
+  namespace :admin do
+    resources :requests do
+      resources :comments
+    end  
+  end
    
   resources :requests do
     resources :comments

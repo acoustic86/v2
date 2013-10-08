@@ -9,14 +9,13 @@ ActiveAdmin.register User do
   
  show do |user|
    
-   div do     
-     user.id     
-   end
-   
-   div do     
-     user.email    
+   attributes_table do
+       row  :id
+       row  :email
+       row  :time_zone
+       row  :created_at
+       row  :updated_at
    end 
-   
    
     div do      
       panel("Requests") do
@@ -29,9 +28,16 @@ ActiveAdmin.register User do
           column :description
           column "Name" do |i|
             if i.profile.present?
-              i.profile.name
+              link_to i.profile.name, admin_profile_path(i.profile)
             end 
-          end         
+          end
+#show link to view the request with comments if the request has any comments         
+          column "Comments" do |i|
+            if i.comments.present?
+              link_to "View Comments", admin_request_path(i)
+            end
+          end
+          
         end
       end
     end 

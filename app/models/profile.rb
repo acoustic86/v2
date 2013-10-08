@@ -7,9 +7,9 @@ class Profile < ActiveRecord::Base
   
   # This method associates the attribute ":avatar" with a file attachment
   has_attached_file :image, styles: {
-    thumb: '200x200>',
-    square: '360x280#',
-    medium: '300x300>'
+    thumb: '100x100#',
+    square: '1024x680>',
+    medium: '300x300#'
   },
   :default_url => "/images/:style/No_Image.png"
   #:s3_credentials => S3_CREDENTIALS,
