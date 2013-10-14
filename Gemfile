@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 
-ruby "1.9.3"
+ruby "2.0.0"
 
 # Use postgresql as the database for Active Record
 gem 'pg'
@@ -34,8 +34,8 @@ gem 'bootstrap-will_paginate', '0.0.9'
 gem 'paperclip'
 gem 'aws-sdk'
 
-gem 'sunspot_rails'
-gem 'sunspot_solr'
+#gem 'sunspot_rails'
+#gem 'sunspot_solr'
 
 gem 'activeadmin', github: 'gregbell/active_admin'
 
@@ -72,7 +72,8 @@ end
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
+gem 'newrelic_rpm'
 
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
