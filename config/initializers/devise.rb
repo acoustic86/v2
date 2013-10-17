@@ -7,7 +7,7 @@ Devise.setup do |config|
   config.mailer_sender = "arcadiabakery@gmail.com"
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = "Devise::Mailer"
+  config.mailer = "Devise::Mailer" #uncommented
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
@@ -111,7 +111,7 @@ Devise.setup do |config|
   config.reconfirmable = true
 
   # Defines which key will be used when confirming an account
-  # config.confirmation_keys = [ :email ]
+  config.confirmation_keys = [ :email ] #uncommented
 
   # ==> Configuration for :rememberable
   # The time the user will be remembered without asking for credentials again.

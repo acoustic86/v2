@@ -1,7 +1,22 @@
 Showping::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   
-  config.action_mailer.default_url_options = { :host => '127.0.0.1:3000' }
+  config.action_mailer.default_url_options = { :host => 'localhost:8080' }
+  # Custom Mailer Settings
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.default :charset => "utf-8"
+  
+  APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env]
+  
+  config.action_mailer.smtp_settings = {
+  :address              => "smtp.gmail.com",
+  :port                 => 587,
+  :domain               => 'ladosha.com',
+  :user_name            => APP_CONFIG['email'],
+  :password             => APP_CONFIG['password'],
+  :authentication       => 'login',
+  :enable_starttls_auto => true  }
 
   # In the development environment your application's code is reloaded on
   # every request. This slows down response time but is perfect for development
@@ -16,7 +31,7 @@ Showping::Application.configure do
   config.action_controller.perform_caching = false
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   # Print deprecation notices to the Rails logger.
   config.active_support.deprecation = :log
@@ -43,4 +58,5 @@ Showping::Application.configure do
     #:secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
   #}
 #}
+
 end
