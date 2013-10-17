@@ -1,25 +1,6 @@
 Showping::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
-  
-  
-  # Custom Mailer Settings
-  config.action_mailer.perform_deliveries = true
-  config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default :charset => "utf-8"
-  
-  APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env]
-  
-  config.action_mailer.smtp_settings = {
-  :address              => "smtp.gmail.com",
-  :port                 => 587,
-  :domain               => 'ladosha.com',
-  :user_name            => APP_CONFIG['email'],
-  :password             => APP_CONFIG['password'],
-  :authentication       => 'login',
-  :enable_starttls_auto => true  }
-  
-  config.action_mailer.default_url_options = { :host => 'http://salty-meadow-8212.herokuapp.com' }
-  
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
