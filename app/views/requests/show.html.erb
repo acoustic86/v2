@@ -28,7 +28,7 @@
 <%= link_to 'Back', profile_path(@request.profile_id) %>
 
 <h2>Comments</h2>
-<% if user_signed_in? && (current_user == @comment.user || current_user == @commentable.profile.user) %>
+<% if user_signed_in? && (current_user == @comment.user || current_user == @commentable.profile.user || current_user == @commentable.user) %>
 <%= render "comments/comments" %>
 <%= render "comments/form" %>
 <% end %>
