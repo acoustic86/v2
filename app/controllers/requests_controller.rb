@@ -40,9 +40,8 @@ class RequestsController < ApplicationController
     @profile = Profile.find(params[:profile_id])
     @user = current_user
     @request = @user.requests.build(request_params)
-    @request.profile_id = @profile.id
     @request.profile = @profile
-    #@request.date = DateTime.strptime(params[:request][:date], '%m/%d/%Y').to_date
+   
 
     respond_to do |format|
       if @request.save

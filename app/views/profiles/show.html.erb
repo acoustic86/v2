@@ -21,9 +21,15 @@
 	<!--<%= image_tag @profile.image.url(:medium) %>-->
 	<!--<%= image_tag @profile.image.url(:thumb) %>-->
 	<div class="span6">
+		<% if user_signed_in? && current_user == @profile.user %>
+			<p class="lead text-left">
+			<%= button_to "Get Coins!", new_profile_request_path(@profile), :class => "btn btn-large btn-block btn-primary", :type => "button", :method => "get" %>  
+		</p><p ></p>	
+		<%else%>
 		<p class="lead text-left">
 			<%= button_to "Make a Wish!", new_profile_request_path(@profile), :class => "btn btn-large btn-block btn-primary", :type => "button", :method => "get" %>  
-		</p><p ></p>			
+		</p><p ></p>
+		<%end%>
 			
 		<p class="lead text-left">
 		  <strong>Experience:</strong>

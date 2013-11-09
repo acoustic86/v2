@@ -1,7 +1,13 @@
 <div id="comments">
 <% @comments.each do |comment| %>
   <div class="comment">
-    <%= simple_format comment.comment %>
+  	<blockquote>
+     <%= simple_format comment.comment %> 
+     <small class="small"> 
+	    By <%= comment.user.email %>	    
+	    On: <%= comment.created_at.strftime("%B %d, %Y"" at " "%I:%M %p") %>
+	  </small>
+    </blockquote>
   </div>
 <% end %>
 </div>

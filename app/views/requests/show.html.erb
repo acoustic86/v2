@@ -1,9 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<% if user_signed_in? && current_user == @request.user %>
+<%= link_to 'Edit', edit_profile_request_path(@request.profile_id, @request) %> 
+<%= link_to 'Back', profile_path(@request.profile_id) %>
+<%end%>
+<br></br>
+
 <p>
   <strong>Date:</strong>
   <%= @request.date.strftime("%B %d, %Y") %> 
-<p>
+
   <strong>Time:</strong>
   <%= @request.time.strftime("%I:%M %p") %>
 </p>
@@ -15,19 +21,15 @@
 <p>
 </p>
 <p>
-  <strong>Created At:</strong>
-  <%= @request.created_at %>
+  <small>Created At:
+  <%= @request.created_at.in_time_zone(Time.zone).strftime("%B %d, %Y"" at " "%I:%M %p") %>
+  </small>
 </p>
+
+
+<h1>...</h1>
 <p>
-  <strong>Updated At:</strong>
-  <%= @request.updated_at %>
 </p>
-
-
-<%= link_to 'Edit', edit_profile_request_path(@request.profile_id, @request) %> 
-<%= link_to 'Back', profile_path(@request.profile_id) %>
-
-<h2>Comments</h2>
 <% if user_signed_in? && (current_user == @comment.user || current_user == @commentable.profile.user || current_user == @commentable.user) %>
 <%= render "comments/comments" %>
 <%= render "comments/form" %>
