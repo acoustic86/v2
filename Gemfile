@@ -75,6 +75,9 @@ end
 gem 'unicorn'
 gem 'newrelic_rpm'
 
+#use Stripe for card processing
+gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 

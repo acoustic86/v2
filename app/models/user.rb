@@ -14,4 +14,9 @@ class User < ActiveRecord::Base
  #accepts_nested_attributes_for :requests
  
   validates_inclusion_of :time_zone, in: ActiveSupport::TimeZone.zones_map(&:name)
+  
+   def stripe_recipient
+    return nil if stripe_recipient_id.nil?
+    Stripe::Recipient.retrieve stripe_recipient_id
+   end
 end

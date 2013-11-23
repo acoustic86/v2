@@ -46,7 +46,6 @@ Showping::Application.routes.draw do
   resources :requests do
     resources :comments
   end
- 
 
   root to: "profiles#index"
   
