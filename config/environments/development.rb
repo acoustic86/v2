@@ -7,14 +7,14 @@ Showping::Application.configure do
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.default :charset => "utf-8"
   
-  APP_CONFIG = YAML.load_file("#{Rails.root}/config/config.yml")[Rails.env]
+  APP_CONFIG = YAML.load_file("#{Rails.root}/config/application.yml")[Rails.env]
   
   config.action_mailer.smtp_settings = {
   :address => "smtp.gmail.com",
   :port => 587,
-  :domain => 'ladosha.com',
-  :user_name => APP_CONFIG['email'],
-  :password => APP_CONFIG['password'],
+  :domain => 'virthium.com',
+  :user_name => Figaro.env.v_email,
+  :password => Figaro.env.v_email_password,
   :authentication => 'login',
   :enable_starttls_auto => true }
 

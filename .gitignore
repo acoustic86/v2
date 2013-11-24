@@ -16,3 +16,5 @@
 /tmp
 /solr/data
 /public/system/profiles/images
+# Ignore application configuration
+/config/application.yml

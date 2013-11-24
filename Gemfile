@@ -78,6 +78,9 @@ gem 'newrelic_rpm'
 #use Stripe for card processing
 gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
+# Use figaro to set ENV variables
+gem "figaro"
+
 # Use Capistrano for deployment
 # gem 'capistrano', group: :development
 
