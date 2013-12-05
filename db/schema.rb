@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131007004320) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20131205013548) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -98,6 +95,7 @@ ActiveRecord::Schema.define(version: 20131007004320) do
     t.datetime "updated_at"
     t.integer  "profile_id"
     t.integer  "user_id"
+    t.decimal  "price",       precision: 8, scale: 2
   end
 
   add_index "requests", ["profile_id", "user_id"], name: "index_requests_on_profile_id_and_user_id", using: :btree

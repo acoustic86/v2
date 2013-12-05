@@ -9,4 +9,5 @@ class Request < ActiveRecord::Base
   #attr_accessible :description, :profile, :user
   
   validates_presence_of :description
+  validates :price, :numericality => {:less_than => 100000.00}
 end

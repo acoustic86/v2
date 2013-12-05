@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <% if user_signed_in? && current_user == @request.user %>
 <%= link_to 'Edit', edit_profile_request_path(@request.profile_id, @request) %> 
 <%= link_to 'Back', profile_path(@request.profile_id) %>
@@ -18,6 +16,12 @@
   <strong>Description:</strong>
   <%= @request.description %>
 </p>
+
+<p>
+  <strong>Price:</strong>
+  <%= number_to_currency(@request.price, precision: 2) %>
+</p>
+
 <p>
 </p>
 <p>
