@@ -8,16 +8,40 @@ Showping::Application.configure do
   
   #APP_CONFIG = YAML.load_file("#{Rails.root}/config/applicaton.yml")[Rails.env]
   
-  config.action_mailer.smtp_settings = {
-  :address => "smtp.gmail.com",
-  :port => 587,
-  :domain => 'virthium.com',
-  :user_name => Figaro.env.v_email,
-  :password => Figaro.env.v_email_password,
-  :authentication => 'login',
-  :enable_starttls_auto => true }
+  #...................Settings for Gmail.........
+  #config.action_mailer.smtp_settings = {
+  #:address => "smtp.gmail.com",
+  #:port => 587,
+  #:domain => 'virthium.com',
+  #:user_name => Figaro.env.v_email,
+  #:password => Figaro.env.v_email_password,
+  #:authentication => 'login',
+  #:enable_starttls_auto => true }
+  #..................End........................  
   
-  config.action_mailer.default_url_options = { :host => 'http://salty-meadow-8212.herokuapp.com' }
+  #...................Settings for MANDRILL.........
+  #config.action_mailer.smtp_settings = {
+  #address: 'smtp.mandrillapp.com',
+  #port: 587,
+  #username: ENV['MANDRILL_USERNAME'],
+  #password: ENV['MANDRILL_APIKEY'],
+  #domain: 'heroku.com',
+  #authentication: :plain
+  #}
+  #..................End........................
+  
+  #..............Settings for Email from GoDaddy.............
+  ActionMailer::Base.smtp_settings = {  
+  :address              => "smtpout.secureserver.net ",  
+  :port                 => 25,  
+  :domain               => "www.virthium.com",
+  :user_name            => "alex@virthium.com",  
+  :password             => ENV['PRODUCTION_EMAIL_PASSWORD'],  
+  :authentication       => "plain"
+  }
+  #.................End..........................
+    
+  config.action_mailer.default_url_options = { :host => 'salty-meadow-8212.herokuapp.com' }
 
   # Code is not reloaded between requests.
   config.cache_classes = true
