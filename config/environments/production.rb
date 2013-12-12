@@ -20,25 +20,25 @@ Showping::Application.configure do
   #..................End........................  
   
   #...................Settings for MANDRILL.........
-  #config.action_mailer.smtp_settings = {
-  #address: 'smtp.mandrillapp.com',
-  #port: 587,
-  #username: ENV['MANDRILL_USERNAME'],
-  #password: ENV['MANDRILL_APIKEY'],
-  #domain: 'heroku.com',
-  #authentication: :plain
-  #}
+  config.action_mailer.smtp_settings = {
+  address: 'smtp.mandrillapp.com',
+  port: 587,
+  username: ENV['MANDRILL_USERNAME'],
+  password: ENV['MANDRILL_APIKEY'],
+  domain: 'heroku.com',
+  authentication: :plain
+  }
   #..................End........................
   
   #..............Settings for Email from GoDaddy.............
-  ActionMailer::Base.smtp_settings = {  
-  :address              => "smtpout.secureserver.net ",  
-  :port                 => 25,  
-  :domain               => "www.virthium.com",
-  :user_name            => "alex@virthium.com",  
-  :password             => ENV['PRODUCTION_EMAIL_PASSWORD'],  
-  :authentication       => "plain"
-  }
+  #ActionMailer::Base.smtp_settings = {  .........................................this line looks weird, try changing it
+  #:address              => "smtpout.secureserver.net ",  
+  #:port                 => 25,  
+  #:domain               => "www.virthium.com",
+  #:user_name            => "alex@virthium.com",  
+  #:password             => ENV['PRODUCTION_EMAIL_PASSWORD'],  
+  #:authentication       => "plain"
+  #}
   #.................End..........................
     
   config.action_mailer.default_url_options = { :host => 'salty-meadow-8212.herokuapp.com' }
