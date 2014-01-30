@@ -8,7 +8,7 @@ ruby "2.0.0"
 # Use postgresql as the database for Active Record
 gem 'pg'
 
-gem 'devise',  '3.0.2'
+gem 'devise'
 
 #gem 'jquery-ui-rails'
 
