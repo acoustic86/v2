@@ -233,7 +233,7 @@ DEPENDENCIES
   bootstrap-timepicker-rails
   bootstrap-will_paginate (= 0.0.9)
   coffee-rails (~> 4.0.0)
-  devise (= 3.2)
+  devise
   figaro
   geocoder
   jbuilder (~> 1.2)
