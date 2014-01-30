@@ -23,7 +23,7 @@
 	<div class="span6">
 		<% if user_signed_in? && current_user == @profile.user %>
 			<p class="lead text-left">
-			<%= button_to "Get Coins!", new_profile_request_path(@profile), :class => "btn btn-large btn-block btn-primary", :type => "button", :method => "get" %>  
+			<%= button_to "Create Value", new_profile_request_path(@profile), :class => "btn btn-large btn-block btn-primary", :type => "button", :method => "get" %>  
 		</p><p ></p>	
 		<%else%>
 		<p class="lead text-left">
@@ -46,11 +46,7 @@
 		  <%= @profile.current_location %>
 		</p>
 		
-		<p class="lead text-left">
-		  <strong>Base price:</strong>
-		  <%= @profile.base_price %>
-		</p>
-	</div>
+		</div>
 	
 	
 	<div class="span12">
@@ -59,14 +55,53 @@
 		  <%= @profile.description %>
 		</p>
 	</div>
+
+	<br />	
+	</div>
+</table>	
+  
+
+<p class="text-center">  
+  <strong><%= link_to 'Make a Wish', new_profile_request_path(@profile) %></strong>
+</p>
+	<br /> 
 	
+	<table class="table table-striped">
+	<tr>
+		<th>Request</th>		
+		<th>Date</th>
+		<th>Time</th>
+		<th>Description</th>
+	</tr>  
+ 
+	<% @profile.requests.each do |request| %>
+	<% if user_signed_in? && (current_user == request.user || current_user == @profile.user) %>
+	
+	  	<tr>
+	  	<td><%= link_to 'View Wish', profile_request_path(@profile, request)%></td>
+	  	<td><%= request.date.strftime("%B %d, %Y") %></td>
+	  	<td><%= request.time.strftime("%I:%M %p")%></td>
+	  	<td><%= request.description %></td>
+	  </tr>
+	  <% end %>  
+	<% end %>
+  </table>
+</body>
+
+
+
+
+
+
+
+<!--	
 	<% if @profile.youtube_url?%>
 	<p>
 	<%= raw (youtube_embed(@profile.youtube_url)) %>
 	</p> 
 	<% end %>
 	
-<!-- Displaying Google maps -->	
+<!-- Displaying Google maps 	
 	<% if @profile.latitude? && @profile.longitude? %>
 		<body style="height: 100%" >
 			<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAWKwilqin-soCVfMwTBF9xSLsvEAxaFww&sensor=false">
@@ -94,7 +129,7 @@
 		<div id="map-canvas" style="width: 100%; height: 500px;" >	
 		</div>
 	<% end %> 
-<!-- End of Displaying Google maps -->	
+<!-- End of Displaying Google maps 	
 	<br />
 	
 	
@@ -102,35 +137,4 @@
 	<p>
 	<%= raw (@profile.google_calendar) %>
 	</p> 
-	<% end %>	
-	<br />	
-	</div>
-</table>	
-  
-
-<p class="text-center">  
-  <strong><%= link_to 'Make a Request', new_profile_request_path(@profile) %></strong>
-</p>
-	<br /> 
-	
-	<table class="table table-striped">
-	<tr>
-		<th>Request</th>		
-		<th>Date</th>
-		<th>Time</th>
-		<th>Description</th>
-	</tr>  
- 
-	<% @profile.requests.each do |request| %>
-	<% if user_signed_in? && (current_user == request.user || current_user == @profile.user) %>
-	
-	  	<tr>
-	  	<td><%= link_to 'View Request', profile_request_path(@profile, request)%></td>
-	  	<td><%= request.date.strftime("%B %d, %Y") %></td>
-	  	<td><%= request.time.strftime("%I:%M %p")%></td>
-	  	<td><%= request.description %></td>
-	  </tr>
-	  <% end %>  
-	<% end %>
-  </table>
-</body>
+	<% end %>	-->

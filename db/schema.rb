@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131205013548) do
+ActiveRecord::Schema.define(version: 20140130023758) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -66,13 +66,10 @@ ActiveRecord::Schema.define(version: 20131205013548) do
   add_index "comments", ["user_id"], name: "index_comments_on_user_id", using: :btree
 
   create_table "profiles", force: true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
     t.text     "description"
     t.integer  "experience"
     t.string   "profession"
     t.text     "current_location"
-    t.integer  "base_price"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
@@ -82,7 +79,6 @@ ActiveRecord::Schema.define(version: 20131205013548) do
     t.datetime "image_updated_at"
     t.string   "youtube_url"
     t.string   "name"
-    t.text     "google_calendar"
     t.float    "latitude"
     t.float    "longitude"
   end

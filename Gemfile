@@ -76,7 +76,10 @@ gem 'unicorn'
 gem 'newrelic_rpm'
 
 #use Stripe for card processing
-gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+#gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
+
+#use Balanced for transactions processing
+gem 'balanced'
 
 # Use figaro to set ENV variables
 gem "figaro"
