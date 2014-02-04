@@ -18,9 +18,9 @@ ActiveAdmin.register Request do
      #       
      #     end
      #     
-         if (params.has_key?(:profile_id))
-           @comments = Comment.where(commentable_id: params[:profile_id])           
-         end
+        #if (params.has_key?(:profile_id))
+         #  @comments = Comment.where(commentable_id: params[:profile_id])           
+       #  end
          
          
                  
