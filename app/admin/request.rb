@@ -80,8 +80,8 @@ ActiveAdmin.register Request do
         div do    
           panel("Comments") do
             
-          def GET
-           @env["action_controller.request.query_parameters"] ||= normalize_parameters(super)
+          def query_parameters
+            @query_parameters ||= self.class.parse_query_parameters(query_string)
           end
          
             
