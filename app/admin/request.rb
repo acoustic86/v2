@@ -30,6 +30,10 @@ ActiveAdmin.register Request do
      #def scoped_collection
      # end_of_association_chain.includes(@profile)
      #end
+     
+      def query_parameters
+        @query_parameters ||= self.class.parse_query_parameters(query_string)
+      end
       
               
       def permitted_params
@@ -78,12 +82,7 @@ ActiveAdmin.register Request do
      end 
      # this doesn't work on Heroku     
         div do    
-          panel("Comments") do
-            
-          def query_parameters
-            @query_parameters ||= self.class.parse_query_parameters(query_string)
-          end
-         
+          panel("Comments") do  
             
             table_for(request.comments) do 
               column :id do |c|                
