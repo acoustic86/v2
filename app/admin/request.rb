@@ -79,6 +79,10 @@ ActiveAdmin.register Request do
      # this doesn't work on Heroku     
         div do    
           panel("Comments") do
+            
+          def GET
+           @env["action_controller.request.query_parameters"] ||= normalize_parameters(super)
+          end
          
             
             table_for(request.comments) do 
