@@ -85,7 +85,9 @@ ActiveAdmin.register Request do
         div do    
           panel("Comments") do  
             
-            table_for(request.comments) do 
+            @comments = Comment.where(commentable_id: params[:profile_id])
+            
+            table_for(@comments) do 
               column :id do |c|                
                 link_to c.id, admin_comment_path(c) if c.id.present?
               end
