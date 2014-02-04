@@ -85,7 +85,7 @@ ActiveAdmin.register Request do
         div do    
           panel("Comments") do  
             
-            @comments = Comment.where(commentable_id: params[:profile_id])
+            @comments = Comment.where(commentable_id: request.id)
             
             table_for(@comments) do 
               column :id do |c|                
