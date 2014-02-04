@@ -18,10 +18,11 @@ ActiveAdmin.register Request do
      #       
      #     end
      #     
-     #     if (params.has_key?(:profile_id))
-     #       @requests = Request.where(profile_id: params[:profile_id])
-     #       
-     #     end
+         if (params.has_key?(:profile_id))
+           @comments = Comment.where(commentable_id: params[:profile_id])           
+         end
+         
+         
                  
      #     @requests = Request.all
          
@@ -31,9 +32,9 @@ ActiveAdmin.register Request do
      # end_of_association_chain.includes(@profile)
      #end
      
-      def query_parameters
-        @query_parameters ||= self.class.parse_query_parameters(query_string)
-      end
+      #def query_parameters
+        #@query_parameters ||= self.class.parse_query_parameters(query_string)
+      #end
       
               
       def permitted_params
