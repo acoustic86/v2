@@ -67,9 +67,8 @@ ActiveAdmin.register Request do
    show do |request|
      attributes_table do
        row  "Name" do |i|
-        if i.profile.present?
-         link_to i.profile.name, admin_profile_path(i.profile)
-        end
+         i.profile.present?
+         link_to i.profile.name, admin_profile_path(i.profile)        
        end
        row  :date
        row  :time
@@ -79,10 +78,10 @@ ActiveAdmin.register Request do
      end 
      # this doesn't work on Heroku     
         div do    
-          panel("Comments")
+          panel("Comments") do
          
             
-            table_for(request.comments) do
+            table_for(request.comments) do 
               column :id do |c|                
                 link_to c.id, admin_comment_path(c) if c.id.present?
               end
@@ -97,5 +96,5 @@ ActiveAdmin.register Request do
           end
         end    
       #####
-         
+      end  
 end
