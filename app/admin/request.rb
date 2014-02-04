@@ -77,24 +77,25 @@ ActiveAdmin.register Request do
        row  :created_at
        row  :updated_at
      end 
-     # this doesn't work on Heroku
-      div do      
-        panel("Comments") do 
-          
-          table_for(request.comments) do
-            column :id do |c|
-              link_to c.id, admin_comment_path(c)
+     # this doesn't work on Heroku     
+        div do    
+          panel("Comments")
+         
+            
+            table_for(request.comments) do
+              column :id do |c|                
+                link_to c.id, admin_comment_path(c) if c.id.present?
+              end
+              column :title
+              column :comment
+              column :commentable
+              column :commentable_type
+              column :role
+              column :created_at
+              column :updated_at
             end
-            column :title
-            column :comment
-            column :commentable
-            column :commentable_type
-            column :role
-            column :created_at
-            column :updated_at
           end
-        end
-      end
+        end    
       #####
-    end         
+         
 end

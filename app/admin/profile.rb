@@ -18,11 +18,11 @@ ActiveAdmin.register Profile do
     column :experience
     column :profession
     column :current_location
-    column :base_price, :sortable => :base_price do |profile|
-      div :class => "price" do
-        number_to_currency profile.base_price
-      end      
-    end    
+   # column :base_price, :sortable => :base_price do |profile|
+     # div :class => "price" do
+      #  number_to_currency profile.base_price
+     # end      
+    # end    
     column :created_at
     column :name 
     default_actions   
