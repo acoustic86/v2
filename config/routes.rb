@@ -46,6 +46,11 @@ Showping::Application.routes.draw do
   resources :requests do
     resources :comments
   end
+  
+  # get "contact_form/new"
+  # post "contact_form/send_email", :as => "send_email"
+  match '/contact_form', to: 'contact_form#new', via: 'get'
+  match '/send_email', to: 'contact_form#send_email', via: 'post'
 
   root to: "profiles#index"
   

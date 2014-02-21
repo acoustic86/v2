@@ -1,0 +1,24 @@
+<h1>Contact Us</h1>
+
+<%=form_for @contact_form,:url => send_email_path do |f| %>
+	<div class="field">
+		<%= f.label :name %>
+		<%= f.text_field :name %><br />
+	</div>
+	
+	<div class="field">
+		<%= f.label :email %>
+		<%= f.text_field :email %><br />
+	</div>
+	
+	<div class="field">
+		<%= f.label :note %>
+		<%= f.text_area :note %><br />
+	</div>
+	
+	<br />
+	
+	<div class="">		
+		<%= f.submit 'Send', :class => 'btn' %>
+	</div>
+<% end %>

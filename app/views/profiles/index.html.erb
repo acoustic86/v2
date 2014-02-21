@@ -1,7 +1,6 @@
 <!-- button type="button" class="btn-mini btn-success" data-toggle="collapse" data-target="#search"> Open/Close Search </button> -->
 <h1></h1>
-
-<table class="table">
+<table class="table span12">
   <thead>
     <tr>
       <th></th>      
@@ -9,15 +8,11 @@
       <th><%= sort_link @search, :experience, "Experience (years)" %></th>
       <th>Profession</th>
       <th>Location</th>
-      <th>$$$</th>
-      <th></th>
-      <th></th>
-      <th></th>
+      <th>$$$</th>      
     </tr>
   </thead>
   
-   
-  <div id="search" data-spy="affix-bottom" data-offset-top="20" class="collapse in form-search form-inline" >
+   <div id="search" data-spy="affix-top" data-offset-top="20" class="collapse in form-search form-inline" >
   <%= search_form_for @search do |f|%>
   <div class="row">
   	<div class="span3">
@@ -36,8 +31,9 @@
     	<%= f.submit "Search", {:class => "btn " } %> 
     </div>
    <% end %>
-
-</div>	
+   </div>
+  
+   	
  <br></br>
  <%= paginate @profiles %> 
 
