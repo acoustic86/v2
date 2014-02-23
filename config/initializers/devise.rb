@@ -7,7 +7,7 @@ Devise.setup do |config|
   config.mailer_sender = "virthium@gmail.com"
 
   # Configure the class responsible to send e-mails.
-  # config.mailer = "Devise::Mailer"
+   config.mailer = "Devise::Mailer"
 
   # ==> ORM configuration
   # Load and configure the ORM. Supports :active_record (default) and
@@ -58,7 +58,7 @@ Devise.setup do |config|
   # :token         = Support basic authentication with token authentication key
   # :token_options = Support token authentication with options as defined in
   #                  http://api.rubyonrails.org/classes/ActionController/HttpAuthentication/Token.html
-  # config.http_authenticatable = false
+   config.http_authenticatable = [:token]
 
   # If http headers should be returned for AJAX requests. True by default.
   # config.http_authenticatable_on_xhr = true
@@ -98,7 +98,7 @@ Devise.setup do |config|
   # the user cannot access the website without confirming his account.
   # config.allow_unconfirmed_access_for = 2.days
 
-  # A period that the user is allowed to confirm their account before their
+  # A period that the user is allowed to confirm their account before their************************look into this**************************
   # token becomes invalid. For example, if set to 3.days, the user can confirm
   # their account within 3 days after the mail was sent, but on the fourth day
   # their account can't be confirmed with the token any more.
