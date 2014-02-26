@@ -17,6 +17,22 @@ ActiveAdmin.register User do
        row  :updated_at
    end 
    
+#profiles related list  
+   div do      
+      panel("Profiles") do
+        table_for(user.profiles) do          
+          column :id
+          column :name do |p|
+            link_to p.name, admin_profile_path(p)
+          end
+          column :profession
+          column :created_at
+          column :updated_at     
+        end
+      end
+    end    
+
+#requests related list   
     div do      
       panel("Requests") do
         table_for(user.requests) do
@@ -41,6 +57,7 @@ ActiveAdmin.register User do
         end
       end
     end 
+    
   end
  index do
     column "Users" do |user|
