@@ -11,6 +11,8 @@ ActiveAdmin.register User do
    
    attributes_table do
        row  :id
+       row  :first_name
+       row  :last_name
        row  :email
        row  :time_zone
        row  :created_at
