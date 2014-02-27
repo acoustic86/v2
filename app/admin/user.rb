@@ -1,9 +1,15 @@
 ActiveAdmin.register User do
   
+  # batch_action :flag do |selection|
+  #    User.find(selection).each { |p| p.flag! }
+  #    redirect_to collection_path, :notice => "Users flagged!"
+  # end
+   
    batch_action :flag do |selection|
-      User.find(selection).each { |p| p.flag! }
-      redirect_to collection_path, :notice => "Users flagged!"
-   end
+      User.find(selection).each do |user|
+        user.flag! :hot
+      end
+    end
   
   controller do
     #...
