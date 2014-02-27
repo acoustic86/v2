@@ -5,8 +5,9 @@ ActiveAdmin.register User do
   #    redirect_to collection_path, :notice => "Users flagged!"
   # end
    
-   batch_action :destroy, :if => proc { can?( :destroy, User ) } do |selection|
-      redirect_to collection_path, :alert => "Didn't delete these!"
+   batch_action :destroy do |selection|
+     User.find(selection).each { |p| p.destroy! }
+      redirect_to collection_path, :alert => "Didn't delete these!", notice => "Users Deleted"
     end
   
   controller do

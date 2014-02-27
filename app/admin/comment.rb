@@ -1,7 +1,8 @@
 ActiveAdmin.register Comment do
   
-  batch_action :destroy, :if => proc { can?( :destroy, Comment ) } do |selection|
-      redirect_to collection_path, :alert => "Didn't really delete these!"
+  batch_action :destroy do |selection|
+     Comment.find(selection).each { |p| p.destroy! }
+      redirect_to collection_path, :alert => "Didn't delete these!", notice => "Comments Deleted"
     end
   
   controller do
