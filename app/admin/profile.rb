@@ -1,10 +1,5 @@
 ActiveAdmin.register Profile do
   
-  batch_action :destroy do |selection|
-     Profile.find(selection).each { |p| p.destroy! }
-      redirect_to collection_path, :alert => "Didn't delete these!", notice => "Profiles Deleted"
-    end
-  
   controller do
     #...
     def permitted_params
