@@ -18,6 +18,8 @@ Showping::Application.routes.draw do
     resources :profiles
   end
   
+  match '/users/:user_id/my_profiles', to: 'profiles#my_profiles', via: 'get', as: 'my_profiles' 
+  
   resources :profiles do
       resources :requests do
         resources :comments

@@ -1,5 +1,10 @@
 ActiveAdmin.register Profile do
   
+  batch_action :flag do |selection|
+      Post.find(selection).each { |p| p.flag! }
+      redirect_to collection_path, :notice => "Posts flagged!"
+    end
+  
   controller do
     #...
     def permitted_params
@@ -8,6 +13,7 @@ ActiveAdmin.register Profile do
   end
   
   index do
+    selectable_column
     column "Requests" do |profile|
       link_to("View Requests", admin_profile_requests_path(profile))
     end    

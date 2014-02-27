@@ -1,0 +1,36 @@
+<h1></h1>
+<table class="table span12">
+  <thead>
+    <tr>
+      <th></th>      
+      <th>Name</th>      
+      <th>Experience</th>
+      <th>Profession</th>
+      <th>Location</th>           
+    </tr>
+  </thead>
+   	
+ <br></br>
+ 
+  <tbody>
+  	<div class="container-fluid media">
+  		<div class="row-fluid">
+  			<div class="span4">
+		    <% @profiles.each do |profile| %>
+		      <tr>		      	
+		      	<td class="thumbnails visible-tablet visible-desktop hidden-phone"><%= link_to (image_tag profile.image.url(:medium)), profile %></td>
+		      	<td class="thumbnails hidden-tablet hidden-desktop visible-phone"><%= link_to (image_tag profile.image.url(:thumb)), profile %></td>        
+		        <td><%= profile.name %></td>        
+		        <td><%= profile.experience %></td>
+		        <td><%= profile.profession %></td>
+		        <td><%= profile.current_location %></td> 
+		      </tr>
+		    <% end %>
+		</div>
+	  </div>
+	</div>
+  </tbody>
+</table>
+
+<br>
+

@@ -1,5 +1,10 @@
 ActiveAdmin.register User do
   
+   batch_action :flag do |selection|
+      Post.find(selection).each { |p| p.flag! }
+      redirect_to collection_path, :notice => "Posts flagged!"
+   end
+  
   controller do
     #...
     def permitted_params
@@ -61,7 +66,11 @@ ActiveAdmin.register User do
     end 
     
   end
- index do
+  
+  index do
+    selectable_column
+    column :first_name
+    column :last_name
     column "Users" do |user|
       link_to("View Requests", admin_user_requests_path(user))
     end    
@@ -70,10 +79,10 @@ ActiveAdmin.register User do
     end    
     column :email    
     default_actions    
- end
+  end
  
- ActiveAdmin.register Request do
-    belongs_to :user, :optional => true    
- end
+  ActiveAdmin.register Request do
+     belongs_to :user, :optional => true    
+  end
  
 end

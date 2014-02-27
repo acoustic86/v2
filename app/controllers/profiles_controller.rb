@@ -6,6 +6,12 @@ class ProfilesController < ApplicationController
 
   # GET /profiles
   # GET /profiles.json
+  def my_profiles
+    @user = User.find(params[:user_id])
+    @profiles = @user.profiles
+  end
+  
+  
   def index
     #@search = Profile.search do
       #fulltext params[:search]
@@ -96,7 +102,7 @@ class ProfilesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profile_params
-      params.require(:profile).permit(:first_name, :last_name, :description, :experience, :profession, :current_location, :base_price,
-       :user_id, :image, :youtube_url, :name, :google_calendar, :latitude, :longitude)
+      params.require(:profile).permit(:description, :experience, :profession, :current_location,
+       :user_id, :image, :youtube_url, :name, :latitude, :longitude)
     end
 end

@@ -52,7 +52,7 @@
           	
             <ul class="nav">				
 				<% if user_signed_in? && current_user.profiles.any?%>				
-                <li><%= link_to "Profiles", user_profiles_path(current_user) %></li>
+                <li><%= link_to "My Profiles", my_profiles_path(current_user) %></li>
                 <% end %>
                 
                 <% if user_signed_in? && current_user.profiles.any?%>	
@@ -62,7 +62,7 @@
               
              <ul class="nav pull-right">	   
                 <% if user_signed_in? %>                 					  
-				  <li><%= link_to "Loged In as: " + current_user.email, edit_user_registration_path %> </li>
+				  <li><%= link_to current_user.first_name, edit_user_registration_path %> </li>
 				  <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>	
 				<% else %>
 						
