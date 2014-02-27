@@ -1,8 +1,8 @@
 ActiveAdmin.register Profile do
   
   batch_action :flag do |selection|
-      Post.find(selection).each { |p| p.flag! }
-      redirect_to collection_path, :notice => "Posts flagged!"
+      Profile.find(selection).each { |p| p.flag! }
+      redirect_to collection_path, :notice => "Profiles flagged!"
     end
   
   controller do

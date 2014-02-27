@@ -1,8 +1,8 @@
 ActiveAdmin.register Comment do
   
   batch_action :flag do |selection|
-      Post.find(selection).each { |p| p.flag! }
-      redirect_to collection_path, :notice => "Posts flagged!"
+      Comment.find(selection).each { |p| p.flag! }
+      redirect_to collection_path, :notice => "Comments flagged!"
    end
   
   controller do
