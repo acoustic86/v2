@@ -1,4 +1,4 @@
-ActiveAdmin.register Comment do
+ActiveAdmin.register Comment, as: 'AdminComment' do
   
   controller do
     #...
