@@ -21,12 +21,16 @@ Showping::Application.routes.draw do
   match '/users/:user_id/my_profiles', to: 'profiles#my_profiles', via: 'get', as: 'my_profiles' 
   
   resources :profiles do
-      resources :requests do
+      resources :requests do 
+        get 'new_product', on: :new
+        get 'new_service', on: :new 
+        get 'new_event', on: :new       
         resources :comments
       end
   end
   
-  resources :requests
+ # resources :requests ... did I need this?
+  
   
   namespace :admin do
     resources :profiles do

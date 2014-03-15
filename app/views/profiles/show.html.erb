@@ -20,17 +20,41 @@
 	  </div>	
 	<!--<%= image_tag @profile.image.url(:medium) %>-->
 	<!--<%= image_tag @profile.image.url(:thumb) %>-->
-	<div class="span6">
-		<% if user_signed_in? && current_user == @profile.user %>
+		<br ></br>
+		<div class="span6 btn-group">
+			<% if user_signed_in? && current_user != @profile.user %>
+				<p class="lead text-left">
+				<%= button_to "Make a Wish!", new_profile_request_path(@profile), :class => "btn btn-large btn-block btn-primary", :type => "button", :method => "get" %>  
+				</p>
+		    <%else%>
+			<a class="btn dropdown-toggle btn-large btn-primary" data-toggle="dropdown" href="#"> New Offering <span class="caret"></span> </a>		
+			<ul class="dropdown-menu btn-primary">
+			<li><%= button_to "Product", new_product_new_profile_request_path(@profile), :class => "btn btn-large btn-block btn-primary", :type => "button", :method => "get" %></li>
+			<li><%= button_to "Service", new_service_new_profile_request_path(@profile), :class => "btn btn-large btn-block btn-primary", :type => "button", :method => "get" %> </li>
+			<li><%= button_to "Event", new_event_new_profile_request_path(@profile), :class => "btn btn-large btn-block btn-primary", :type => "button", :method => "get" %></li>
+			<li role="presentation" class="divider"></li>
+			<li><%= button_to "Basic", new_profile_request_path(@profile), :class => "btn btn-large btn-block btn-primary", :type => "button", :method => "get" %></li>
+			<%end%>
+		</div>
+		<br ></br>
+		<br ></br>			
+<!--		<% if user_signed_in? && current_user == @profile.user %>
 			<p class="lead text-left">
-			<%= button_to "Create Value", new_profile_request_path(@profile), :class => "btn btn-large btn-block btn-primary", :type => "button", :method => "get" %>  
-		</p><p ></p>	
+			<%= button_to "Create New Product", new_product_new_profile_request_path(@profile), :class => "btn btn-large btn-block btn-primary", :type => "button", :method => "get" %>  
+			</p>
+			<p class="lead text-left">
+			<%= button_to "Create New Service", new_service_new_profile_request_path(@profile), :class => "btn btn-large btn-block btn-primary", :type => "button", :method => "get" %>  
+			</p>
+			<p class="lead text-left">
+			<%= button_to "Create New Event", new_event_new_profile_request_path(@profile), :class => "btn btn-large btn-block btn-primary", :type => "button", :method => "get" %>  
+			</p>				
+		<p ></p>	
 		<%else%>
 		<p class="lead text-left">
 			<%= button_to "Make a Wish!", new_profile_request_path(@profile), :class => "btn btn-large btn-block btn-primary", :type => "button", :method => "get" %>  
 		</p><p ></p>
 		<%end%>
-			
+-->		<div class="span6">	
 		<p class="lead text-left">
 		  <strong>Experience:</strong>
 		  <%= @profile.experience %>

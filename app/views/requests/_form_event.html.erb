@@ -6,14 +6,12 @@
 	  end % -->	 
 	  
 	<%= f.error_notification %>
-	 
-	  <%= f.input :date, as: :string, :id => "datepicker col-span-3", input_html: { class: "datepicker", value: Time.zone.now.to_date.strftime('%m/%d/%Y')}%>
-		  
+	  <%= f.input :name %>
+	  <%= f.input :date, as: :string, :id => "datepicker col-span-3", label: "Delivery Date", input_html: { class: "datepicker", value: Time.zone.now.to_date.strftime('%m/%d/%Y')}%>		  
 	  <%= f.input :time, as: :time, :minute_step => 15, :ampm => true, input_html: { class: "dateselect-time input-small", value: Time.zone.now.utc.strftime("%I:%M %p")} %>
 	       <!-- f.input :time, :as => :time_picker  "use this for formtastic"-->
-      
-	  <%= f.input :description %>
-	  
+	  <%= f.input :limit %>      
+	  <%= f.input :description %>	  
 	  <%= f.input :price %>
 	  <%= f.hidden_field :record_type %>
   <br></br> 

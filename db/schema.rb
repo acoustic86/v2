@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140226014505) do
+ActiveRecord::Schema.define(version: 20140315035801) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -91,11 +91,18 @@ ActiveRecord::Schema.define(version: 20140226014505) do
     t.datetime "updated_at"
     t.integer  "profile_id"
     t.integer  "user_id"
-    t.decimal  "price",       precision: 8, scale: 2
+    t.decimal  "price",        precision: 8, scale: 2
+    t.string   "name"
+    t.date     "payment_date"
+    t.boolean  "offering"
+    t.integer  "limit"
+    t.integer  "amount"
+    t.string   "record_type"
   end
 
   add_index "requests", ["profile_id", "user_id"], name: "index_requests_on_profile_id_and_user_id", using: :btree
   add_index "requests", ["profile_id"], name: "index_requests_on_profile_id", using: :btree
+  add_index "requests", ["record_type"], name: "index_requests_on_record_type", using: :btree
   add_index "requests", ["user_id", "profile_id"], name: "index_requests_on_user_id_and_profile_id", using: :btree
   add_index "requests", ["user_id"], name: "index_requests_on_user_id", using: :btree
 

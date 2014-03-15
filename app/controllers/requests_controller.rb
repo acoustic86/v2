@@ -1,7 +1,7 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
   before_filter :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]  
-  before_action :owns_request, only: [:edit, :update, :destroy]
+  before_action :owns_request, only: [:edit, :update, :destroy]  
   
   # GET /requests
   # GET /requests.json
@@ -24,7 +24,29 @@ class RequestsController < ApplicationController
   def new
     @user = current_user
     @profile = Profile.find(params[:profile_id])
+    @request = Request.new(:user_id => @user) 
+    @request.record_type = 'wish'    
+  end
+  
+  def new_product
+    @user = current_user
+    @profile = Profile.find(params[:profile_id])
+    @request = Request.new(:user_id => @user) 
+    @request.record_type = 'product'      
+  end
+  
+  def new_service
+    @user = current_user
+    @profile = Profile.find(params[:profile_id])
     @request = Request.new(:user_id => @user)
+    @request.record_type = 'service'      
+  end
+  
+  def new_event
+    @user = current_user
+    @profile = Profile.find(params[:profile_id])
+    @request = Request.new(:user_id => @user) 
+    @request.record_type = 'event'    
   end
 
   # GET /requests/1/edit
@@ -96,6 +118,6 @@ class RequestsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def request_params
-      params.require(:request).permit(:date, :time, :description, :profile_id, :user_id, :price)
+      params.require(:request).permit(:date, :time, :description, :profile_id, :user_id, :price, :payment_date, :offering, :name, :limit, :amount, :record_type)
     end
 end
